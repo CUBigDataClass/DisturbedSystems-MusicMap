@@ -2,6 +2,10 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
 import * as searchConstants from "../../static/actionConstants"
 import * as URLS from '../../static/apiConstants'
+import {fetchMapData} from "../actions/searchActions";
+import {fetchLiveTweets} from "../actions/searchActions";
+import {fetchAlbumData} from "../actions/searchActions";
+import {fetchGoogleEvents} from "../actions/searchActions";
 
 function* fetchSuggestions(action) {
     try {
@@ -39,15 +43,32 @@ function* fetchSuggestions(action) {
 function* fetchSuggestionsOnLyrics() {
 }
 
-//call Kevals service
-function* fetchGeoTweetData() {
+function* fetchMapData() {
+
+}
+
+function* fetchLiveTweets() {
 
 }
 
 
+function* fetchGoogleEvents() {
+
+}
+
+
+function* fetchAlbumData() {
+//call Kevals service
+
+
+}
+
 
 export default function* searchSaga () {
     yield takeLatest(searchConstants.INPUT_CHANGED_LOADING, fetchSuggestions)
-    yield takeLatest(searchConstants.INPUT_ENTERED, fetchSuggestions)
+    yield takeLatest(searchConstants.FETCH_MAP_DATA, fetchMapData)
+    yield takeLatest(searchConstants.FETCh_LIVE_TWEETS, fetchLiveTweets)
+    yield takeLatest(searchConstants.FETCH_ALBUM_DATA, fetchAlbumData)
+    yield takeLatest(searchConstants.FETCH_GOOGLE_EVENTS, fetchGoogleEvents())
 
 }

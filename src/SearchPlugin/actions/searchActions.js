@@ -53,6 +53,22 @@ export function fetchMapData(value) {
     }
 }
 
+export function fetchMapDataSuccessful(value) {
+    return {
+        type : searchActions.FETCH_MAP_DATA_SUCCESSFUL,
+        value : value
+    }
+}
+
+export function fetchMapDataFailed(value) {
+    return {
+        type : searchActions.FETCH_MAP_DATA_FAILED,
+        value : value
+    }
+}
+
+
+
 
 export function fetchAlbumData(value) {
     return {
@@ -61,12 +77,42 @@ export function fetchAlbumData(value) {
     }
 }
 
+export function fetchAlbumDataSuccessful(value) {
+    return {
+        type : searchActions.FETCH_ALBUM_DATA_SUCCESSFUL,
+        value : value
+    }
+}
+
+export function fetchAlbumDataFailed(value) {
+    return {
+        type : searchActions.FETCH_ALBUM_DATA_FAILED,
+        value : value
+    }
+}
+
+
 export function fetchLiveTweets(value) {
     return {
         type : searchActions.FETCh_LIVE_TWEETS,
         value : value
     }
 }
+
+export function fetchLiveTweetsSuccessful(value) {
+    return {
+        type : searchActions.FETCh_LIVE_TWEETS_SUCCESSFUL,
+        value : value
+    }
+}
+
+export function fetchLiveTweetsFailed(value) {
+    return {
+        type : searchActions.FETCh_LIVE_TWEETS_FAILED,
+        value : value
+    }
+}
+
 
 export function fetchGoogleEvents(value) {
     return {
@@ -75,6 +121,19 @@ export function fetchGoogleEvents(value) {
     }
 }
 
+export function fetchGoogleEventsSuccessful(value) {
+    return {
+        type : searchActions.FETCH_GOOGLE_EVENTS_SUCCESSFUL,
+        value : value
+    }
+}
+
+export function fetchGoogleEventsFailed(value) {
+    return {
+        type : searchActions.FETCH_GOOGLE_EVENTS_FAILED,
+        value : value
+    }
+}
 
 
 
