@@ -1,4 +1,4 @@
-import * as searchActions from "../../static/constants";
+import * as searchActions from "../../static/actionConstants";
 
 
 export function inputChanged(value) {
@@ -43,4 +43,40 @@ export function lyricsSwitchedOff(value) {
 
     }
 }
+
+
+
+export function fetchMapData(value) {
+    return {
+        type : searchActions.FETCH_MAP_DATA,
+        value : value
+    }
+}
+
+
+export function fetchAlbumData(value) {
+    return {
+        type : searchActions.FETCH_ALBUM_DATA,
+        value : value
+    }
+}
+
+export function fetchLiveTweets(value) {
+    return {
+        type : searchActions.FETCh_LIVE_TWEETS,
+        value : value
+    }
+}
+
+export function fetchGoogleEvents(value) {
+    return {
+        type : searchActions.FETCH_GOOGLE_EVENTS,
+        value : value
+    }
+}
+
+
+
+
+
 

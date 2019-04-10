@@ -1,4 +1,4 @@
-import * as searchActions from '../../static/constants'
+import * as searchActions from '../../static/actionConstants'
 
 export default function searchReducer(state ={}, action) {
 switch (action.type) {

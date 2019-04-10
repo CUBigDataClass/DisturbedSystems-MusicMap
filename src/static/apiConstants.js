@@ -1,0 +1,5 @@
+export const TITLE_SEARCH ="http://api.service.com/endpoint"
+export const LYRIC_SEARCH ="https://api.service.com/endpoint"
+export const TWITTER_SEARCH ="https://api.service.com/endpoint"
+export const ALBUM_SEARCH ="https://api.service.com/endpoint"
+export const GOOGLE_EVENTS ="https://api.service.com/endpoint"

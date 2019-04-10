@@ -1,12 +1,11 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
-import * as searchConstants from "../../static/constants"
-
+import * as searchConstants from "../../static/actionConstants"
+import * as URLS from '../../static/apiConstants'
 
 function* fetchSuggestions(action) {
     try {
-        //
-        // const response = yield call(fetch, 'https://api.service.com/endpoint');
+        // const response = yield call(fetch, URLS.TITLE_SEARCH);
         // const responseBody = response.json();
 
         yield put(searchActions.inputChanged({value : action.value.value,"results": [
@@ -34,7 +33,6 @@ function* fetchSuggestions(action) {
         // yield put(fetchFailed(e));
         return;
     }
-
 
 }
 
