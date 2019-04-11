@@ -87,6 +87,7 @@ class Map extends React.Component {
     }
 
     render() {
+        // console.log("NEW PROPS SEARCH", this.props)
         return (
             <div id="chartdiv" style={{width: "100%", height: "500px"}}></div>
         );

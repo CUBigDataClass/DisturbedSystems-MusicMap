@@ -6,14 +6,13 @@ import * as rawData from '../../static/rawData'
 
 function* fetchSuggestions(action) {
     try {
-        // const response = yield call(fetch, URLS.TITLE_SEARCH);
+        // const response = yield call(fetch, URLS.FETCH_TITLE_SEARCH);
         // const responseBody = response.json();
-
-        // yield put(searchActions.inputChanged({value : action.value.value, results: rawData.searchSuggestions }));
 
     } catch (e) {
         // yield put(fetchFailed(e));
     }
+
     yield put(searchActions.inputChanged({value : action.value.value, results: rawData.searchSuggestions }));
 
 
@@ -23,8 +22,14 @@ function* fetchSuggestionsOnLyrics() {
 }
 
 function* fetchMapData(action) {
-    // const response = yield call(fetch, URLS.TITLE_SEARCH);
-    // const responseBody = response.json();
+    try {
+        // const response = yield call(fetch, URLS.FETCH_MAP_DATA);
+        // const responseBody = response.json();
+
+    } catch (e) {
+        // yield put(fetchFailed(e));
+    }
+
     yield put(searchActions.fetchMapDataSuccessful({ data: rawData.mapData }));
 }
 

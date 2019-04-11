@@ -6,7 +6,7 @@ import {Search} from 'semantic-ui-react'
 
 class SearchComponent extends React.Component {
     render() {
-        console.log("props coming", this.props)
+        // console.log("NEW PROPS SEARCH", this.props)
         return (
             <Search
                 loading={this.props.isLoading}
@@ -14,7 +14,6 @@ class SearchComponent extends React.Component {
                 onSearchChange={this.props.handleSearchChange}
                 results={this.props.results}
                 value={this.props.value}
-                {...this.props}
             />
         );
     }
@@ -38,29 +37,28 @@ const mapDispatchToProps = dispatch => {
                 value: {isLoading: true, value: e.target.value, results: []}
             })
         },
-        handleResultSelect: (e) => {
-            console.log("paramm",e)
-            let key = e.target.value;
+        handleResultSelect: (e, results) => {
+            let result = results.result
             //set the search bar right
             dispatch({
                 type: searchConstants.INPUT_ENTERED,
-                value: {value : key}
+                value: result
             })
             //fetch the map data
             dispatch({
                 type: searchConstants.FETCH_MAP_DATA,
-                value: key
+                value: result
             })
 
             //fetch the album data
             dispatch({
                 type: searchConstants.FETCH_ALBUM_DATA,
-                value: key
+                value: result
             })
             //fetch google event data
             dispatch({
                 type: searchConstants.FETCH_GOOGLE_EVENTS,
-                value: key
+                value: result
             })
         }
     }
