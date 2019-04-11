@@ -70,10 +70,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-}
-
-//make the call for mapdata
-
-}
-}
 

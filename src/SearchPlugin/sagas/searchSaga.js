@@ -2,10 +2,6 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
 import * as searchConstants from "../../static/actionConstants"
 import * as URLS from '../../static/apiConstants'
-import {fetchMapData} from "../actions/searchActions";
-import {fetchLiveTweets} from "../actions/searchActions";
-import {fetchAlbumData} from "../actions/searchActions";
-import {fetchGoogleEvents} from "../actions/searchActions";
 
 function* fetchSuggestions(action) {
     try {
@@ -44,7 +40,7 @@ function* fetchSuggestionsOnLyrics() {
 }
 
 function* fetchMapData() {
-
+    return;
 }
 
 function* fetchLiveTweets() {
