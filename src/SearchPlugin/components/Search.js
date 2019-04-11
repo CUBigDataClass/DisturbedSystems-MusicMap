@@ -6,6 +6,7 @@ import {Search} from 'semantic-ui-react'
 
 class SearchComponent extends React.Component {
     render() {
+        console.log("props coming", this.props)
         return (
             <Search
                 loading={this.props.isLoading}
@@ -20,11 +21,6 @@ class SearchComponent extends React.Component {
 }
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SearchComponent)
-
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -36,17 +32,19 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleSearchChange: (e) =>
+        handleSearchChange: (e) => {
             dispatch({
-                value: {isLoading: true, value: e.target.value, results: []},
-                type: searchConstants.INPUT_CHANGED_LOADING
-            }),
+                type: searchConstants.INPUT_CHANGED_LOADING,
+                value: {isLoading: true, value: e.target.value, results: []}
+            })
+        },
         handleResultSelect: (e) => {
+            console.log("paramm",e)
             let key = e.target.value;
             //set the search bar right
             dispatch({
-                type: searchConstants.INPUT_CHANGED,
-                value: key
+                type: searchConstants.INPUT_ENTERED,
+                value: {value : key}
             })
             //fetch the map data
             dispatch({
@@ -68,6 +66,12 @@ const mapDispatchToProps = dispatch => {
     }
 
 }
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SearchComponent)
+
 
 
 

@@ -2,45 +2,30 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
 import * as searchConstants from "../../static/actionConstants"
 import * as URLS from '../../static/apiConstants'
+import * as rawData from '../../static/rawData'
 
 function* fetchSuggestions(action) {
     try {
         // const response = yield call(fetch, URLS.TITLE_SEARCH);
         // const responseBody = response.json();
 
-        yield put(searchActions.inputChanged({value : action.value.value,"results": [
-        {
-            "title": "Krajcik Group",
-            "description": "Customer-focused executive portal",
-            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg",
-            "price": "$54.65"
-        },
-        {
-            "title": "Fisher, Ward and Hagenes",
-            "description": "Progressive background capability",
-            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/robergd/128.jpg",
-            "price": "$59.93"
-        },
-        {
-            "title": "Satterfield, Rice and Gerhold",
-            "description": "Integrated static migration",
-            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/chatyrko/128.jpg",
-            "price": "$19.26"
-        }
-    ],}));
+        // yield put(searchActions.inputChanged({value : action.value.value, results: rawData.searchSuggestions }));
 
     } catch (e) {
         // yield put(fetchFailed(e));
-        return;
     }
+    yield put(searchActions.inputChanged({value : action.value.value, results: rawData.searchSuggestions }));
+
 
 }
 
 function* fetchSuggestionsOnLyrics() {
 }
 
-function* fetchMapData() {
-    return;
+function* fetchMapData(action) {
+    // const response = yield call(fetch, URLS.TITLE_SEARCH);
+    // const responseBody = response.json();
+    yield put(searchActions.fetchMapDataSuccessful({ data: rawData.mapData }));
 }
 
 function* fetchLiveTweets() {
@@ -65,6 +50,6 @@ export default function* searchSaga () {
     yield takeLatest(searchConstants.FETCH_MAP_DATA, fetchMapData)
     yield takeLatest(searchConstants.FETCh_LIVE_TWEETS, fetchLiveTweets)
     yield takeLatest(searchConstants.FETCH_ALBUM_DATA, fetchAlbumData)
-    yield takeLatest(searchConstants.FETCH_GOOGLE_EVENTS, fetchGoogleEvents())
+    yield takeLatest(searchConstants.FETCH_GOOGLE_EVENTS, fetchGoogleEvents)
 
 }

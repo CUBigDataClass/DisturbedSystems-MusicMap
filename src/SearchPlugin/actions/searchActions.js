@@ -3,8 +3,8 @@ import * as searchActions from "../../static/actionConstants";
 
 export function inputChanged(value) {
     return {
-        type: searchActions.INPUT_CHANGED,
-        value: value
+        value: value,
+        type: searchActions.INPUT_CHANGED
 
     }
 }
