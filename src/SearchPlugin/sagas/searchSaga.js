@@ -30,7 +30,7 @@ function* fetchMapData(action) {
         // yield put(fetchFailed(e));
     }
 
-    yield put(searchActions.fetchMapDataSuccessful({ data: rawData.mapData }));
+    yield put(searchActions.fetchMapDataSuccessful({ data: rawData.jayz }));
 }
 
 function* fetchLiveTweets() {

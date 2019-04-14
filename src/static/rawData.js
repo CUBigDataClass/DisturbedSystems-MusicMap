@@ -222,3 +222,307 @@ export const mapData = [
         value: 493782
     }
 ];
+
+export const beyonce = [
+    {
+    id: "US-NY",
+    value: 2
+    },
+    {
+        id: "US-NV",
+        value: 0
+    },
+    {
+        id: "US-NJ",
+        value: 1
+    },
+    {
+        id: "US-NH",
+        value: 0
+    },
+    {
+        id: "US-VA",
+        value: 2
+    },
+    {
+        id: "US-VT",
+        value: 0
+    },
+    {
+        id: "US-NM",
+        value: 0
+    },
+    {
+        id: "US-NC",
+        value: 0
+    },
+    {
+        id: "US-ND",
+        value: 0
+    },
+    {
+        id: "US-NE",
+        value: 0
+    },
+    {
+        id: "US-FL",
+        value: 2
+    },
+    {
+        id: "US-WA",
+        value: 1
+    },
+    {
+        id: "US-KS",
+        value: 0
+    },
+    {
+        id: "US-WI",
+        value: 0
+    },
+    {
+        id: "US-OR",
+        value: 1
+    },
+    {
+        id: "US-KY",
+        value: 1
+    },
+    {
+        id: "US-OH",
+        value: 0
+    },
+    {
+        id: "US-OK",
+        value: 0
+    },
+    {
+        id: "US-WV",
+        value: 0
+    },
+    {
+        id: "US-WY",
+        value: 0
+    },
+    {
+        id: "US-CO",
+        value: 0
+    },
+    {
+        id: "US-CA",
+        value: 9
+    },
+    {
+        id: "US-GA",
+        value: 2
+    },
+    {
+        id: "US-RI",
+        value: 0
+    },
+    {
+        id: "US-CT",
+        value: 0
+    },
+    {
+        id: "US-PA",
+        value: 2
+    },
+    {
+        id: "US-TN",
+        value: 1
+    },
+    {
+        id: "US-TX",
+        value: 4
+    },
+    {
+        id: "US-HI",
+        value: 0
+    },
+    {
+        id: "US-LA",
+        value: 2
+    },
+    {
+        id: "US-SD",
+        value: 0
+    },
+    {
+        id: "US-DE",
+        value: 0
+    },
+    {
+        id: "US-SC",
+        value: 0
+    },
+    {
+        id: "US-IA",
+        value: 0
+    },
+    {
+        id: "US-ID",
+        value: 1
+    },
+    {
+        id: "US-UT",
+        value: 0
+    },
+    {
+        id: "US-IN",
+        value: 1
+    },
+    {
+        id: "US-IL",
+        value: 2
+    },
+    {
+        id: "US-AK",
+        value: 0
+    },
+    {
+        id: "US-ME",
+        value: 0
+    },
+    {
+        id: "US-MD",
+        value: 1
+    },
+    {
+        id: "US-MA",
+        value: 0
+    },
+    {
+        id: "US-AL",
+        value: 0
+    },
+    {
+        id: "US-MO",
+        value: 0
+    },
+    {
+        id: "US-MN",
+        value: 0
+    },
+    {
+        id: "US-MI",
+        value: 1
+    },
+    {
+        id: "US-AZ",
+        value: 0
+    },
+    {
+        id: "US-MT",
+        value: 0
+    },
+    {
+        id: "US-MS",
+        value: 0
+    },
+    {
+        id: "US-AR",
+        value: 0
+    }];
+
+
+export const jayz = [{id: "US-NY",
+    value: 11},
+    {id: "US-NV",
+        value: 0},
+    {id: "US-NJ",
+        value: 9},
+    {id: "US-NH",
+        value: 0},
+    {id: "US-VA",
+        value: 3},
+    {id: "US-VT",
+        value: 0},
+    {id: "US-NM",
+        value: 0},
+    {id: "US-NC",
+        value: 3},
+    {id: "US-ND",
+        value: 0},
+    {id: "US-NE",
+        value: 1},
+    {id: "US-FL	",
+        value: 3},
+    {id: "US-WA",
+        value: 0},
+    {id: "US-KS",
+        value: 0},
+    {id: "US-WI",
+        value: 0},
+    {id: "US-OR",
+        value: 1},
+    {id: "US-KY",
+        value: 1},
+    {id: "US-OH",
+        value: 4},
+    {id: "US-OK",
+        value: 0},
+    {id: "US-WV",
+        value: 0},
+    {id: "US-WY",
+        value: 0},
+    {id: "US-CO",
+        value: 1},
+    {id: "US-CA ",
+        value: 1},
+    {id: "US-GA",
+        value: 4},
+    {id: "US-RI",
+        value: 1},
+    {id: "US-CT",
+        value: 0},
+    {id: "US-PA",
+        value: 1},
+    {id: "US-TN",
+        value: 1},
+    {id: "US-TX",
+        value: 8},
+    {id: "US-HI",
+        value: 0},
+    {id: "US-LA",
+        value: 6},
+    {id: "US-SD",
+        value: 0},
+    {id: "US-DE",
+        value: 0},
+    {id: "US-SC",
+        value: 3},
+    {id: "US-IA",
+        value: 1},
+    {id: "US-ID",
+        value: 2},
+    {id: "US-UT",
+        value: 0},
+    {id: "US-IN",
+        value: 4},
+    {id: "US-IL",
+        value: 5},
+    {id: "US-AK",
+        value: 0},
+    {id: "US-ME",
+        value: 0},
+    {id: "US-MD",
+        value: 2},
+    {id: "US-MA",
+        value: 3},
+    {id: "US-AL",
+        value: 0},
+    {id: "US-MO",
+        value: 0},
+    {id: "US-MN",
+        value: 1},
+    {id: "US-MI",
+        value: 1},
+    {id: "US-AZ",
+        value: 0},
+    {id: "US-MT",
+        value: 0},
+    {id: "US-MS",
+        value: 0},
+    {id: "US-AR",
+        value: 0}]
