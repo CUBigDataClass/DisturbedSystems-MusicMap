@@ -11,7 +11,6 @@ export default class App extends React.Component {
                 <Cell height={10} width={2} center middle><Map/></Cell>
                 <Cell height={10} width={1} center middle>Artist and the album</Cell>
                 <Cell height={3} width={1} center middle>Stream tweets</Cell>
-
                 <Cell width={2} center middle>Miscellaneous like google events and stuff</Cell>
             </Grid>
         );
