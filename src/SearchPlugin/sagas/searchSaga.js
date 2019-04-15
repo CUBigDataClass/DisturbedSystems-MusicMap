@@ -22,15 +22,16 @@ function* fetchSuggestionsOnLyrics() {
 }
 
 function* fetchMapData(action) {
+    let term = action.value.artist;
     try {
-        // const response = yield call(fetch, URLS.FETCH_MAP_DATA);
-        // const responseBody = response.json();
-
+        const res = yield fetch(URLS.FETCH_MAP_DATA + term).then(response => response.json());
+        yield put(searchActions.fetchMapDataSuccessful({ data:res }));
     } catch (e) {
-        // yield put(fetchFailed(e));
+        yield put(searchActions.fetchMapDataFailed(e));
+
     }
 
-    yield put(searchActions.fetchMapDataSuccessful({ data: rawData.malone}));
+
 }
 
 function* fetchLiveTweets(action) {
