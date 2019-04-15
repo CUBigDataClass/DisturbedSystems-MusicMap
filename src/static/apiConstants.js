@@ -1,6 +1,6 @@
 export const FETCH_TITLE_SEARCH ="http://api.service.com/endpoint"
 export const FETCH_LYRIC_SEARCH ="https://api.service.com/endpoint"
-export const FETCH_LIVE_TWEETS ="https://api.service.com/endpoint"
+export const FETCH_LIVE_TWEETS ="http://localhost:3001/setSearchTerm"
 export const FETCH_ALBUM ="https://api.service.com/endpoint"
 export const FETCH_GOOGLE_EVENTS ="https://api.service.com/endpoint"
 export const FETCH_MAP_DATA ="https://api.service.com/endpoint"

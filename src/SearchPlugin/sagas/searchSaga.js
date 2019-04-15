@@ -33,8 +33,22 @@ function* fetchMapData(action) {
     yield put(searchActions.fetchMapDataSuccessful({ data: rawData.malone}));
 }
 
-function* fetchLiveTweets() {
+function* fetchLiveTweets(action) {
+    let term = action.value.artist || "eminem";//get the artist name
+    let headers = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ term })
+    };
 
+    try {
+        yield call(fetch, URLS.FETCH_LIVE_TWEETS, headers);
+        yield put(searchActions.fetchLiveTweetsSuccessful(""));
+    } catch (err) {
+        yield put(searchActions.fetchLiveTweetsFailed(""));
+    }
 }
 
 

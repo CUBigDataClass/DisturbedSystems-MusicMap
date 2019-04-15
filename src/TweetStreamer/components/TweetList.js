@@ -5,14 +5,10 @@ import CardComponent from './CardComponent';
 import Tweet from 'react-tweet'
 
 
-class TweetList extends React.Component {
+export default class TweetList extends React.Component {
     constructor(props) {
         super(props);
         this.state = { items: [], searchTerm: "JavaScript" };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.handleResume = this.handleResume.bind(this);
-        this.handlePause = this.handlePause.bind(this);
     }
 
     handleChange(event) {
@@ -102,4 +98,3 @@ class TweetList extends React.Component {
 }
 
 
-export default TweetList;

@@ -135,6 +135,14 @@ export function fetchGoogleEventsFailed(value) {
     }
 }
 
+export function tweetDataArrived(value) {
+    return {
+        type : searchActions.TWEET_DATA_ARRIVED,
+        value : value
+    }
+}
+
+
 
 
 
