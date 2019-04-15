@@ -5,6 +5,13 @@ import {Search} from 'semantic-ui-react'
 
 
 class SearchComponent extends React.Component {
+
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            console.log("Enter key has been pressed to select the key")
+            this.props.handleResultSelect(event, {result : {title : event.target.value, artist : event.target.value}})
+        }
+    }
     render() {
         // console.log("NEW PROPS SEARCH", this.props)
         return (
@@ -12,6 +19,7 @@ class SearchComponent extends React.Component {
                 loading={this.props.isLoading}
                 onResultSelect={this.props.handleResultSelect}
                 onSearchChange={this.props.handleSearchChange}
+                onKeyPress={this.handleKeyPress.bind(this)}
                 results={this.props.results}
                 value={this.props.value}
             />
@@ -58,6 +66,12 @@ const mapDispatchToProps = dispatch => {
             //fetch google event data
             dispatch({
                 type: searchConstants.FETCH_GOOGLE_EVENTS,
+                value: result
+            })
+
+            //fetch live tweets
+            dispatch({
+                type: searchConstants.FETCh_LIVE_TWEETS,
                 value: result
             })
         }

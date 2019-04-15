@@ -1,47 +1,16 @@
 import React from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
 import socketIOClient from "socket.io-client";
-import CardComponent from './CardComponent';
 import Tweet from 'react-tweet'
+import * as searchConstants from "../../static/actionConstants";
+import connect from "react-redux/es/connect/connect";
 
 
-export default class TweetList extends React.Component {
+class TweetList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { items: [], searchTerm: "JavaScript" };
     }
 
-    handleChange(event) {
-        this.setState({ searchTerm: event.target.value });
-    }
-
-    handleKeyPress(event) {
-        if (event.key === 'Enter') {
-            this.handleResume();
-        }
-    }
-
-    handleResume() {
-        let term = this.state.searchTerm;
-        fetch("http://localhost:3001/setSearchTerm",
-            {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ term })
-            })
-    }
-
-    handlePause(event) {
-        fetch("http://localhost:3001/pause",
-            {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-    }
 
     componentDidMount() {
         const socket = socketIOClient('http://localhost:3001/');
@@ -50,8 +19,7 @@ export default class TweetList extends React.Component {
             console.log("Socket Connected");
             socket.on("tweets", data => {
                 console.info(data);
-                let newList = [data].concat(this.state.items.slice(0, 15));
-                this.setState({ items: newList });
+                this.props.twitterDataArrived(data);
             });
         });
         socket.on('disconnect', () => {
@@ -63,14 +31,14 @@ export default class TweetList extends React.Component {
 
 
     render() {
-        let items = this.state.items;
+        let items = this.props.items;
 
         let itemsCards = <CSSTransitionGroup
             transitionName="example"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}>
             {items.map((x, i) =>
-                <Tweet key={i} data={x} />
+                <Tweet key={i} data={x}/>
             )}
         </CSSTransitionGroup>
 
@@ -96,5 +64,29 @@ export default class TweetList extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        items: state.tweetStreamerReducer
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        twitterDataArrived: (data) => {
+            dispatch({
+                type: searchConstants.TWEET_DATA_ARRIVED,
+                value: data
+            })
+        }}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TweetList)
+
+
 
 

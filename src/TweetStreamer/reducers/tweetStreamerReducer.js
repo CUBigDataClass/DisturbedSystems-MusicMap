@@ -1,7 +1,7 @@
 import * as searchActions from '../../static/actionConstants'
 
-export default function searchReducer(state =[], action) {
-    // console.log("Action:",  action)
+export default function tweetStreamerReducer(state =[], action) {
+    console.log("Action:",  action)
     switch (action.type) {
         case searchActions.FETCh_LIVE_TWEETS_SUCCESSFUL:
             state = Object.assign([])
