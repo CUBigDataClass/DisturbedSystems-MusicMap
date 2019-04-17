@@ -7,7 +7,7 @@ export default function eventCardsReducer(state =[], action) {
             state = Object.assign([]);
             break;
         case searchActions.FETCH_GOOGLE_EVENTS_SUCCESSFUL:
-            state = Object.assign([], action.value)
+            state = Object.assign([], action.value.data)
             break;
         case searchActions.FETCH_GOOGLE_EVENTS_FAILED:
             state = Object.assign([])

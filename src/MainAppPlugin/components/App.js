@@ -4,6 +4,7 @@ import Search from '../../SearchPlugin/components/Search'
 import Map from  "../../MapPlugin/components/Map"
 import TweetStreamer from "../../TweetStreamer/components/TweetStreamer"
 import EventCards from "../../EventsPlugin/components/EventCards"
+
 export default class App extends React.Component {
     render() {
         return (

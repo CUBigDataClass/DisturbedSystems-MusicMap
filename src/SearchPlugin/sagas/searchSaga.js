@@ -53,7 +53,32 @@ function* fetchLiveTweets(action) {
 }
 
 
-function* fetchGoogleEvents() {
+function* fetchGoogleEvents(action) {
+    let term = action.value.artist;
+    let image = "https://i.scdn.co/image/60c4daa4721f666c6afaee82a39bd413979a0474";
+    try {
+        const res = yield fetch(URLS.FETCH_GOOGLE_EVENTS + term).then(response => response.json());
+        const items = res.map((r) => {
+            r.eArtist =term;
+            r.eImage =image;
+
+            return r;
+        })
+        yield put(searchActions.fetchGoogleEventsSuccessful({ data:items }));
+    } catch (e) {
+        yield put(searchActions.fetchGoogleEventsFailed(e));
+
+    }
+
+    // const items = rawData.events.map((r) => {
+    //     r.eArtist =term;
+    //     r.eImage =image;
+    //
+    //     return r;
+    // })
+    //
+    // yield put(searchActions.fetchGoogleEventsSuccessful({ data:items }));
+
 
 }
 
