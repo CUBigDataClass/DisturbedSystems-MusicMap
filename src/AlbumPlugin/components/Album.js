@@ -1,3 +1,40 @@
-import React from 'react';
+import React from 'react'
+import {Card, Icon, Progress} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import * as searchConstants from "../../static/actionConstants"
+
+class Album extends React.Component {
+
+    render() {
+        let artistData = this.props.artistData;
+        if(!artistData.spotifyURL) {
+            return null
+        }
+        const extra = (
+            <Progress indicating label="Popularity" percent={artistData.spotifyPopularity} color='green'/>
+        )
+
+        return (
+            <Card
+                href={artistData.spotifyURL}
+                image={artistData.spotifyImage?artistData.spotifyImage.url:"#"}
+                header={artistData.artistName}
+                meta='Artist'
+                extra={extra}
+            />)
+    }
+}
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        artistData: state.albumReducer
+    }
+}
+
+export default connect(
+    mapStateToProps,
+)(Album)
+
+
+
+

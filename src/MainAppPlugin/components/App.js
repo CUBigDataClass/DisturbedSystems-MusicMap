@@ -4,14 +4,16 @@ import Search from '../../SearchPlugin/components/Search'
 import Map from  "../../MapPlugin/components/Map"
 import TweetStreamer from "../../TweetStreamer/components/TweetStreamer"
 import EventCards from "../../EventsPlugin/components/EventCards"
+import Album  from "../../AlbumPlugin/components/Album"
 
+//change the grid to semantic grid.
 export default class App extends React.Component {
     render() {
         return (
             <Grid  columns={2} gap="2px">
                 <Cell height={3} width={2} ><Search/></Cell>
                 <Cell height={10} width={2} center middle><Map/></Cell>
-                <Cell height={10} width={1} center middle>Artist and the album</Cell>
+                <Cell height={10} width={1} center middle><Album/></Cell>
                 <Cell height={3} width={1} center middle><TweetStreamer/></Cell>
                 <Cell width={2} center middle><EventCards/></Cell>
             </Grid>

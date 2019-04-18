@@ -1,4 +1,4 @@
-import { takeLatest, put, call } from 'redux-saga/effects';
+import {takeLatest, put, call} from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
 import * as searchConstants from "../../static/actionConstants"
 import * as URLS from '../../static/apiConstants'
@@ -13,7 +13,7 @@ function* fetchSuggestions(action) {
         // yield put(fetchFailed(e));
     }
 
-    yield put(searchActions.inputChanged({value : action.value.value, results: rawData.searchSuggestions }));
+    yield put(searchActions.inputChanged({value: action.value.value, results: rawData.searchSuggestions}));
 
 
 }
@@ -25,7 +25,7 @@ function* fetchMapData(action) {
     let term = action.value.artist;
     try {
         const res = yield fetch(URLS.FETCH_MAP_DATA + term).then(response => response.json());
-        yield put(searchActions.fetchMapDataSuccessful({ data:res }));
+        yield put(searchActions.fetchMapDataSuccessful({data: res}));
     } catch (e) {
         yield put(searchActions.fetchMapDataFailed(e));
 
@@ -41,7 +41,7 @@ function* fetchLiveTweets(action) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ term })
+        body: JSON.stringify({term})
     };
 
     try {
@@ -59,38 +59,34 @@ function* fetchGoogleEvents(action) {
     try {
         const res = yield fetch(URLS.FETCH_GOOGLE_EVENTS + term).then(response => response.json());
         const items = res.map((r) => {
-            r.eArtist =term;
-            r.eImage =image;
-
+            r.eArtist = term;
+            r.eImage = image;
             return r;
         })
-        yield put(searchActions.fetchGoogleEventsSuccessful({ data:items }));
+        yield put(searchActions.fetchGoogleEventsSuccessful({data: items}));
     } catch (e) {
         yield put(searchActions.fetchGoogleEventsFailed(e));
 
     }
 
-    // const items = rawData.events.map((r) => {
-    //     r.eArtist =term;
-    //     r.eImage =image;
-    //
-    //     return r;
-    // })
-    //
-    // yield put(searchActions.fetchGoogleEventsSuccessful({ data:items }));
+}
 
+
+function* fetchAlbumData(action) {
+    let term = action.value.artist;
+    try {
+        const res = yield fetch(URLS.FETCH_ALBUM + term).then(response => response.json());
+        res.artistName = term;
+        yield put(searchActions.fetchAlbumDataSuccessful({data: res}));
+    } catch (e) {
+        yield put(searchActions.fetchAlbumDataFailed(e));
+
+    }
 
 }
 
 
-function* fetchAlbumData() {
-//call Kevals service
-
-
-}
-
-
-export default function* searchSaga () {
+export default function* searchSaga() {
     yield takeLatest(searchConstants.INPUT_CHANGED_LOADING, fetchSuggestions)
     yield takeLatest(searchConstants.FETCH_MAP_DATA, fetchMapData)
     yield takeLatest(searchConstants.FETCh_LIVE_TWEETS, fetchLiveTweets)
