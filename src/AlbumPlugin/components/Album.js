@@ -16,7 +16,7 @@ class Album extends React.Component {
         return (
             <Card
                 href={artistData.spotifyURL}
-                image={artistData.spotifyImage?artistData.spotifyImage.url:"#"}
+                image={artistData.spotifyImage}
                 header={artistData.artistName}
                 meta='Artist'
                 extra={extra}
