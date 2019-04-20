@@ -83,6 +83,8 @@ class Map extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
+        console.log("NEW PROPS SEARCH", this.props.data)
+
         this.chartData.data =this.props.data
     }
 

@@ -13,6 +13,7 @@ export default function tweetStreamerReducer(state =[], action) {
         case searchActions.TWEET_DATA_ARRIVED:
             let newList = [action.value].concat(state.slice(0, 15));
             state = newList;
+            break;
         default:
             return state
     }

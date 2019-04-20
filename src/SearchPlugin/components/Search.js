@@ -58,22 +58,31 @@ const mapDispatchToProps = dispatch => {
                 value: result
             })
 
+            //fetch live tweets
+            dispatch({
+                type: searchConstants.FETCh_LIVE_TWEETS,
+                value: result
+            })
+
             //fetch the album data
             dispatch({
                 type: searchConstants.FETCH_ALBUM_DATA,
                 value: result
             })
+
+            //fetch live tweets
+            dispatch({
+                type: searchConstants.FETCh_TRACK_DATA,
+                value: result
+            })
+
             //fetch google event data
             dispatch({
                 type: searchConstants.FETCH_GOOGLE_EVENTS,
                 value: result
             })
 
-            //fetch live tweets
-            dispatch({
-                type: searchConstants.FETCh_LIVE_TWEETS,
-                value: result
-            })
+
         }
     }
 

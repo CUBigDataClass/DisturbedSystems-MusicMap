@@ -6,15 +6,16 @@ import SpotifyPlayer from 'react-spotify-player';
 class MusicPlayer extends React.Component {
 
     render() {
+        let trackData = this.props.data;
         const size = {
             width: '100%',
-            height: 300,
+            height: '100%',
         };
-        const view = 'list'; // or 'coverart'
+        const view = 'coverart'; // or 'coverart'
         const theme = 'black'; // or 'white'
 
         return <SpotifyPlayer
-            uri="spotify:track:3KkXRkHbMCARz0aVfEt68P"
+            uri={"spotify:track:" + trackData.trackID}
             size={size}
             view={view}
             theme={theme}
@@ -28,7 +29,7 @@ class MusicPlayer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: state
+        data: state.musicplayerReducer
     }
 }
 

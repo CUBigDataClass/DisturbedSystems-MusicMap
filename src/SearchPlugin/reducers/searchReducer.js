@@ -14,11 +14,9 @@ switch (action.type) {
         break;
     case searchActions.LYRICS_SWITCHED_ON:
         state = Object.assign({}, action.value)
-
         break;
     case searchActions.LYRICS_SWITCHED_OFF:
         state = Object.assign({}, action.value)
-
         break;
     default:
         return state
