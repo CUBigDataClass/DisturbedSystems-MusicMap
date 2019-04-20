@@ -667,8 +667,58 @@ export const malone = [{"id": "US-NY", "value": 0}, {"id": "US-NV", "value": 0},
 }, {"id": "US-MT", "value": 0}, {"id": "US-MS", "value": 1}, {"id": "US-AR", "value": 0}]
 
 
-export const events = [{"eLocation": "Sant Marti", "eRank": 56, "eTitle": "Smells like 90's Albertcode & Robert Martex", "eDate": "2019-04-04", "eCountry": "ES"}, {"eLocation": "Bologna", "eRank": 56, "eTitle": "We Love 90/2000", "eDate": "2019-05-04", "eCountry": "IT"}, {"eLocation": "Columbia", "eRank": 44, "eTitle": "90s VS 00s: Classic Hip-Hop Edition -with DJ Requiem", "eDate": "2019-04-21", "eCountry": "US"}, {"eLocation": "Brighton", "eRank": 34, "eTitle": "Love On Top", "eDate": "2019-04-12", "eCountry": "GB"}, {"eLocation": "Brighton", "eRank": 34, "eTitle": "Love On Top", "eDate": "2019-05-10", "eCountry": "GB"}]
+export const events = [{
+    "eLocation": "Sant Marti",
+    "eRank": 56,
+    "eTitle": "Smells like 90's Albertcode & Robert Martex",
+    "eDate": "2019-04-04",
+    "eCountry": "ES"
+}, {
+    "eLocation": "Bologna",
+    "eRank": 56,
+    "eTitle": "We Love 90/2000",
+    "eDate": "2019-05-04",
+    "eCountry": "IT"
+}, {
+    "eLocation": "Columbia",
+    "eRank": 44,
+    "eTitle": "90s VS 00s: Classic Hip-Hop Edition -with DJ Requiem",
+    "eDate": "2019-04-21",
+    "eCountry": "US"
+}, {
+    "eLocation": "Brighton",
+    "eRank": 34,
+    "eTitle": "Love On Top",
+    "eDate": "2019-04-12",
+    "eCountry": "GB"
+}, {"eLocation": "Brighton", "eRank": 34, "eTitle": "Love On Top", "eDate": "2019-05-10", "eCountry": "GB"}]
 
 
-export  const artistData = {"spotifyImage": {"url": "https://i.scdn.co/image/60c4daa4721f666c6afaee82a39bd413979a0474", "width": 640, "height": 640}, "spotifyURL": "https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR", "spotifyPopularity": "94"}
+export const artistData = {
+    "spotifyImage": {
+        "url": "https://i.scdn.co/image/60c4daa4721f666c6afaee82a39bd413979a0474",
+        "width": 640,
+        "height": 640
+    }, "spotifyURL": "https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR", "spotifyPopularity": "94"
+}
 
+export const trackData = {
+    "acousticness": 0.556,
+    "liveness": 0.0703,
+    "trackID": "3KkXRkHbMCARz0aVfEt68P",
+    "energy": 0.479,
+    "popularity": 98,
+    "tempo": 89.911,
+    "speechiness": 0.0466,
+    "preview_url": null,
+    "albumURL": "https://open.spotify.com/album/35s58BRTGAEWztPo9WqCIs",
+    "albumID": "35s58BRTGAEWztPo9WqCIs",
+    "instrumentalness": 0,
+    "albumImage": "https://i.scdn.co/image/3aa37254a41cf96e81572524ec523cb870f2bb89",
+    "loudness": -5.574,
+    "duration": 158040,
+    "isrc": "USUM71814888",
+    "fullName": "Sunflower - Spider-Man: Into the Spider-Verse",
+    "valence": 0.913,
+    "danceability": 0.76
+}

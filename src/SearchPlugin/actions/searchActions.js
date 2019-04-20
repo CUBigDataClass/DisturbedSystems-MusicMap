@@ -142,8 +142,26 @@ export function tweetDataArrived(value) {
     }
 }
 
+export function fetchTrackData(value) {
 
+    return {
+        type: searchActions.FETCh_TRACK_DATA,
+        value:value
+    }
+}
 
+export function fetchTrackDataSuccessful(value) {
 
+    return {
+        type: searchActions.FETCh_TRACK_DATA_SUCCESSFUL,
+        value:value
+    }
+}
 
+export function fetchTrackDataFailed(value) {
 
+    return {
+        type: searchActions.FETCh_TRACK_DATA_FAILED,
+        value:value
+    }
+}

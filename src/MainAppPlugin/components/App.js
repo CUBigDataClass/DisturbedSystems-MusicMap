@@ -5,7 +5,7 @@ import Map from "../../MapPlugin/components/Map"
 import TweetStreamer from "../../TweetStreamer/components/TweetStreamer"
 import EventCards from "../../EventsPlugin/components/EventCards"
 import Album from "../../AlbumPlugin/components/Album"
-
+import MusicPlayer from  "../../MusicPlayer/components/MusicPlayer"
 //change the grid to semantic grid.
 export default class App extends React.Component {
     render() {
@@ -35,8 +35,7 @@ export default class App extends React.Component {
                             <Album/></Segment>
                     </Grid.Column>
                     <Grid.Column>
-                        <Segment>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/image.png'/></Segment>
+                        <Segment><MusicPlayer/></Segment>
                     </Grid.Column>
 
                 </Grid.Row>

@@ -37,6 +37,7 @@
     "react-js-pull-to-refresh": "^1.2",
     "react-pull-to-refresh": "^1.1.2",
     "react-redux": "^6.0.1",
+    "react-spotify-player": "^1.0.4",
     "react-transition-group": "^1.2.1",
     "react-tweet": "^1.7.1",
     "redux": "^4.0.1",
