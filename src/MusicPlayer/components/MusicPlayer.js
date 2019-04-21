@@ -12,7 +12,7 @@ class MusicPlayer extends React.Component {
             height: '100%',
         };
         const view = 'coverart'; // or 'coverart'
-        const theme = 'black'; // or 'white'
+        const theme = 'white'; // or 'white'
 
         return <SpotifyPlayer
             uri={"spotify:track:" + trackData.trackID}

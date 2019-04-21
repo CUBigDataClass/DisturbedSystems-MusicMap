@@ -5,47 +5,56 @@ import Map from "../../MapPlugin/components/Map"
 import TweetStreamer from "../../TweetStreamer/components/TweetStreamer"
 import EventCards from "../../EventsPlugin/components/EventCards"
 import Album from "../../AlbumPlugin/components/Album"
-import MusicPlayer from  "../../MusicPlayer/components/MusicPlayer"
-//change the grid to semantic grid.
+import MusicPlayer from "../../MusicPlayer/components/MusicPlayer"
+
+import css from "../../static/css/app.css"
+
 export default class App extends React.Component {
     render() {
         return (
-            <Grid textAlign='center'>
-                <Grid.Row columns={1} padded>
+            <div  id="aGrid" className="hey">
+            <Grid>
+                <Grid.Row columns={1}>
                     <Grid.Column>
+
                         <Segment>
-                            <Search/></Segment>
+                            <Search/>
+                        </Segment>
                     </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row columns={2}>
                     <Grid.Column>
                         <Segment>
-                            <Map/></Segment>
+                            <Map/>
+                        </Segment>
                     </Grid.Column>
                     <Grid.Column>
                         <Segment>
-                            <TweetStreamer/></Segment>
+                            <TweetStreamer/>
+                        </Segment>
                     </Grid.Column>
                 </Grid.Row>
 
-                <Grid.Row columns={2}>
+                <Grid.Row columns={2} >
                     <Grid.Column>
                         <Segment>
-                            <Album/></Segment>
+                            <Album/>
+                        </Segment>
                     </Grid.Column>
                     <Grid.Column>
                         <Segment><MusicPlayer/></Segment>
                     </Grid.Column>
-
                 </Grid.Row>
+
                 <Grid.Row columns={1} padded>
                     <Grid.Column>
                         <Segment>
-                            <EventCards/></Segment>
+                            <EventCards/>
+                        </Segment>
                     </Grid.Column>
                 </Grid.Row>
-            </Grid>
+            </Grid></div>
         );
     }
 }
