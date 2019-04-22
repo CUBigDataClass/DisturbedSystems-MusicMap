@@ -35,6 +35,23 @@ class TweetList extends React.Component {
     render() {
         let items = this.props.items;
 
+        if (items === 0) {
+
+            return (<div className={"tweetsContainer"}>
+                <div>
+                    <Header as='h4' icon textAlign='center'>
+                        <Icon name='twitter' size="huge" color='blue'/>
+                        <Header.Content>Live Tweets</Header.Content>
+                    </Header>
+                </div>
+                <div className={"tweetsLoading"}>
+                    <Header as='h3' textAlign='center' icon='search' content='Search to See what people are thinking right now!!' />
+                </div>
+
+            </div>)
+
+        }
+        console.log("itemsmsssssssssssssssssss", items)
         let itemsCards = <CSSTransitionGroup
             transitionName="example"
             transitionEnterTimeout={500}
@@ -50,17 +67,17 @@ class TweetList extends React.Component {
         return (
             <div className={"tweetsContainer"}>
                 <div>
-                    <Header as='h4'  icon textAlign='center'>
-                        <Icon name='twitter' size="huge" color='blue' />
+                    <Header as='h4' icon textAlign='center'>
+                        <Icon name='twitter' size="huge" color='blue'/>
                         <Header.Content>Live Tweets</Header.Content>
                     </Header>
                 </div>
-                    <div className={"tweets"}>
-                        {
-                            items.length > 0 ? itemsCards : loading
-                        }
+                <div className={"tweets"}>
+                    {
+                        items.length > 0 ? itemsCards : loading
+                    }
 
-                    </div>
+                </div>
 
             </div>
         );
@@ -81,7 +98,8 @@ const mapDispatchToProps = dispatch => {
                 type: searchConstants.TWEET_DATA_ARRIVED,
                 value: data
             })
-        }}
+        }
+    }
 }
 
 export default connect(
