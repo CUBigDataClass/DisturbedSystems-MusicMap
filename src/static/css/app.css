@@ -1,13 +1,24 @@
-body {
-    background-color: green !important;
+.appContainer {
+    background-color:#F2EDF3;
+}
+
+.gridContainer {
+    background-color:#F2EDF3;
 }
 
 
-.hey {
-    color: white;
-    background-color: darkslategrey!important;
+.searchContainer {
+    width: 100%;
 }
 
-#aGrid{
-    /*background-color: black!important;*/
+
+.ui.search  {
+    left: 20%;
 }
+
+
+.ui.search > .ui.input.icon { width: 50%; }
+
+.ui.search > .results { width: 50%; }
+
+

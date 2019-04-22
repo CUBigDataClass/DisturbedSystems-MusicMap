@@ -12,49 +12,46 @@ import css from "../../static/css/app.css"
 export default class App extends React.Component {
     render() {
         return (
-            <div  id="aGrid" className="hey">
-            <Grid>
-                <Grid.Row columns={1}>
-                    <Grid.Column>
+            <div className="gridContainer">
+                <Grid padded>
+                    <Grid.Row columns={1}>
+                        <Grid.Column>
+                                <Search/>
+                        </Grid.Column>
+                    </Grid.Row>
 
-                        <Segment>
-                            <Search/>
-                        </Segment>
-                    </Grid.Column>
-                </Grid.Row>
+                    <Grid.Row columns={2}>
+                        <Grid.Column>
+                            <Segment>
+                                <Map/>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Segment>
+                                <TweetStreamer/>
+                            </Segment>
+                        </Grid.Column>
+                    </Grid.Row>
 
-                <Grid.Row columns={2}>
-                    <Grid.Column>
-                        <Segment>
-                            <Map/>
-                        </Segment>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <Segment>
-                            <TweetStreamer/>
-                        </Segment>
-                    </Grid.Column>
-                </Grid.Row>
+                    <Grid.Row columns={2}>
+                        <Grid.Column>
+                            <Segment>
+                                <Album/>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Segment><MusicPlayer/></Segment>
+                        </Grid.Column>
+                    </Grid.Row>
 
-                <Grid.Row columns={2} >
-                    <Grid.Column>
-                        <Segment>
-                            <Album/>
-                        </Segment>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <Segment><MusicPlayer/></Segment>
-                    </Grid.Column>
-                </Grid.Row>
-
-                <Grid.Row columns={1} padded>
-                    <Grid.Column>
-                        <Segment>
+                    <Grid.Row columns={1} padded>
+                        <Grid.Column>
+                            {/*<Segment>*/}
                             <EventCards/>
-                        </Segment>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid></div>
+                            {/*</Segment>*/}
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid></div>
         );
     }
 }

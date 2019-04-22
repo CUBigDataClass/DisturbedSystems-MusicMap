@@ -15,6 +15,7 @@ class SearchComponent extends React.Component {
     render() {
         // console.log("NEW PROPS SEARCH", this.props)
         return (
+            <div className={"searchContainer"}>
             <Search
                 loading={this.props.isLoading}
                 onResultSelect={this.props.handleResultSelect}
@@ -22,7 +23,8 @@ class SearchComponent extends React.Component {
                 onKeyPress={this.handleKeyPress.bind(this)}
                 results={this.props.results}
                 value={this.props.value}
-            />
+                size ="huge"
+            /></div>
         );
     }
 }
