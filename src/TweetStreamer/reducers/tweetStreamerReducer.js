@@ -3,7 +3,7 @@ import * as searchActions from '../../static/actionConstants'
 export default function tweetStreamerReducer(state =[], action) {
     // console.log("Action:",  action)
     switch (action.type) {
-        case searchActions.FETCh_LIVE_TWEETS_SUCCESSFUL:
+        case searchActions.FETCh_LIVE_TWEETS:
             state = Object.assign([])
             break;
         case searchActions.FETCh_LIVE_TWEETS_FAILED:

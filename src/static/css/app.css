@@ -35,3 +35,19 @@
 
     height: 40%;
 }
+
+.tweetsContainer {
+    min-height: 50%;
+    height: 50%;
+}
+
+.mapContainer {
+    min-height: 50%;
+    height: 50%;
+}
+
+
+.tweets {
+    height: 80%;
+    overflow: auto;
+}

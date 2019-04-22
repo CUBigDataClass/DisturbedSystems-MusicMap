@@ -32,12 +32,12 @@ export default class App extends React.Component {
                     </Grid.Row>
 
                     <Grid.Row columns={2}>
-                        <Grid.Column>
+                        <Grid.Column width={10}>
                             <Segment>
                                 <Map/>
                             </Segment>
                         </Grid.Column>
-                        <Grid.Column>
+                        <Grid.Column width={6}>
                             <Segment>
                                 <TweetStreamer/>
                             </Segment>

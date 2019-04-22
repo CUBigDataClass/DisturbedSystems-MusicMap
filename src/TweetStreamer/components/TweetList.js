@@ -5,6 +5,8 @@ import Tweet from 'react-tweet'
 import * as searchConstants from "../../static/actionConstants";
 import connect from "react-redux/es/connect/connect";
 
+import {Loader, Icon, Header} from "semantic-ui-react"
+
 
 class TweetList extends React.Component {
     constructor(props) {
@@ -42,24 +44,24 @@ class TweetList extends React.Component {
             )}
         </CSSTransitionGroup>
 
-        let loading = <div>
-            <p className="flow-text">Looking for live tweets!! Hold on.</p>
-            <div className="progress lime lighten-3">
-                <div className="indeterminate pink accent-1"></div>
-            </div>
-        </div>
+        let loading = <Loader active size='medium'>Fetching Live Tweets!!</Loader>
+
 
         return (
-            <div className=" tweet-body row">
-                <div className="col s12 m4 l4">
-                    <div>
+            <div className={"tweetsContainer"}>
+                <div>
+                    <Header as='h4'  icon textAlign='center'>
+                        <Icon name='twitter' size="huge" color='blue' />
+                        <Header.Content>Live Tweets</Header.Content>
+                    </Header>
+                </div>
+                    <div className={"tweets"}>
                         {
                             items.length > 0 ? itemsCards : loading
                         }
 
                     </div>
 
-                </div>
             </div>
         );
     }
