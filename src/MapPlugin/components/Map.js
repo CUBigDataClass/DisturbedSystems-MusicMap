@@ -4,6 +4,7 @@ import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
 import React from 'react';
 import {connect} from 'react-redux'
+import {Loader, Icon, Header} from "semantic-ui-react"
 
 
 class Map extends React.Component {
@@ -85,14 +86,25 @@ class Map extends React.Component {
     componentDidUpdate(oldProps) {
         console.log("NEW PROPS SEARCH", this.props.data)
 
-        this.chartData.data =this.props.data
+        this.chartData.data = this.props.data
     }
 
     render() {
-        // console.log("NEW PROPS SEARCH", this.props)
         return (
             <div className={"mapContainer"}>
-            <div id="chartdiv" style={{width: "100%", height: "500px"}}></div></div>
+                <div>
+                    <Header as='h4' textAlign='center'>
+                        <Header.Content>Data Visualization from twitter!!</Header.Content>
+                    </Header>
+                </div>
+                {
+                    (this.props.data[0].loaded || this.props.data.length > 1) ? "" :
+                        <Loader active size='medium'>Calculating the twitter data</Loader>
+
+
+                }
+                <div id="chartdiv"></div>
+            </div>
         );
     }
 
