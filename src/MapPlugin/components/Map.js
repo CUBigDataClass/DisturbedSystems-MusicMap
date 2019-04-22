@@ -31,8 +31,10 @@ class Map extends React.Component {
         polygonSeries.heatRules.push({
             property: "fill",
             target: polygonSeries.mapPolygons.template,
-            min: chart.colors.getIndex(1).brighten(1),
-            max: chart.colors.getIndex(1).brighten(-0.3)
+            min: am4core.color("#f8c8ac"),
+            max: am4core.color("#e85a4f")
+            // "min": 
+  // "max": am4core.color("#AAAA00")
         });
 
         // Make map load polygon data (state shapes and names) from GeoJSON
@@ -40,28 +42,29 @@ class Map extends React.Component {
 
         // Set heatmap values for each state
         polygonSeries.data = this.props.data || [{}];
-        // // Set up heat legend
-        // let heatLegend = chart.createChild(am4maps.HeatLegend);
-        // heatLegend.series = polygonSeries;
-        // heatLegend.align = "right";
-        // heatLegend.valign = "bottom";
-        // heatLegend.width = am4core.percent(20);
-        // heatLegend.marginRight = am4core.percent(4);
-        // heatLegend.minValue = 0;
-        // heatLegend.maxValue = 40000000;
+        // Set up heat legend
+        let heatLegend = chart.createChild(am4maps.HeatLegend);
+        heatLegend.series = polygonSeries;
+        heatLegend.align = "right";
+        heatLegend.valign = "bottom";
+        heatLegend.width = am4core.percent(10);
+        heatLegend.marginRight = am4core.percent(4);
+        heatLegend.marginBottom = am4core.percent(4);
+        heatLegend.minValue = 0;
+        heatLegend.maxValue = 40000000;
 
-        // // Set up custom heat map legend labels using axis ranges
-        // let minRange = heatLegend.valueAxis.axisRanges.create();
-        // minRange.value = heatLegend.minValue;
-        // minRange.label.text = "Little";
-        // let maxRange = heatLegend.valueAxis.axisRanges.create();
-        // maxRange.value = heatLegend.maxValue;
-        // maxRange.label.text = "A lot!";
+        // Set up custom heat map legend labels using axis ranges
+        let minRange = heatLegend.valueAxis.axisRanges.create();
+        minRange.value = heatLegend.minValue;
+        minRange.label.text = "Low";
+        let maxRange = heatLegend.valueAxis.axisRanges.create();
+        maxRange.value = heatLegend.maxValue;
+        maxRange.label.text = "High";
 
         // Blank out internal heat legend value axis labels
-        // heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function (labelText) {
-        //     return "";
-        // });
+        heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function (labelText) {
+            return "";
+        });
         //
         // Configure series tooltip
         let polygonTemplate = polygonSeries.mapPolygons.template;
@@ -71,7 +74,7 @@ class Map extends React.Component {
 
         // Create hover state and set alternative fill color
         let hs = polygonTemplate.states.create("hover");
-        hs.properties.fill = am4core.color("#3c5bdc");
+        hs.properties.fill = am4core.color("#d6cec9");
 
         this.chart = chart;
         this.chartData = polygonSeries;
@@ -93,8 +96,8 @@ class Map extends React.Component {
         return (
             <div className={"mapContainer"}>
                 <div>
-                    <Header as='h4' textAlign='center'>
-                        <Header.Content>Data Visualization from twitter!!</Header.Content>
+                    <Header as='h3' textAlign='center'>
+                        <Header.Content>Look! the Tweets are coming from ... </Header.Content>
                     </Header>
                 </div>
                 {
