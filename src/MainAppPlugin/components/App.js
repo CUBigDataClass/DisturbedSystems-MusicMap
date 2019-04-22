@@ -16,7 +16,18 @@ export default class App extends React.Component {
                 <Grid padded>
                     <Grid.Row columns={1}>
                         <Grid.Column>
-                                <Search/>
+                            <Search/>
+                        </Grid.Column>
+                    </Grid.Row>
+
+                    <Grid.Row columns={2}>
+                        <Grid.Column>
+                            <Segment>
+                                <Album/>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Segment><MusicPlayer/></Segment>
                         </Grid.Column>
                     </Grid.Row>
 
@@ -30,17 +41,6 @@ export default class App extends React.Component {
                             <Segment>
                                 <TweetStreamer/>
                             </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
-
-                    <Grid.Row columns={2}>
-                        <Grid.Column>
-                            <Segment>
-                                <Album/>
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Segment><MusicPlayer/></Segment>
                         </Grid.Column>
                     </Grid.Row>
 

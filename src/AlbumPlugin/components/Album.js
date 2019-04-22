@@ -6,21 +6,24 @@ class Album extends React.Component {
 
     render() {
         let artistData = this.props.artistData;
-        if(!artistData.spotifyURL) {
-            return null
+        if (!artistData.spotifyURL) {
+            return (<div className={"albumContainer"}></div>)
+            l
         }
         const extra = (
             <Progress indicating label="Popularity" percent={artistData.spotifyPopularity} color='green'/>
         )
 
         return (
-            <Card
-                href={artistData.spotifyURL}
-                image={artistData.spotifyImage}
-                header={artistData.artistName}
-                meta='Artist'
-                extra={extra}
-            />)
+            <div className={"albumContainer"}>
+                <Card
+                    href={artistData.spotifyURL}
+                    image={artistData.spotifyImage}
+                    header={artistData.artistName}
+                    meta='Artist'
+                    extra={extra}
+                />
+            </div>)
     }
 }
 

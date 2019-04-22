@@ -14,12 +14,12 @@ class MusicPlayer extends React.Component {
         const view = 'coverart'; // or 'coverart'
         const theme = 'white'; // or 'white'
 
-        return <SpotifyPlayer
+        return (<div className={"musicPlayerContainer"}><SpotifyPlayer
             uri={"spotify:track:" + trackData.trackID}
             size={size}
             view={view}
             theme={theme}
-        />
+        /></div>)
 
 
     }
