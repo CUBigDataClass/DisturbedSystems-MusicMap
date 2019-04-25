@@ -4,10 +4,11 @@ export default function searchReducer(state ={}, action) {
     // console.log("Action:",  action)
 switch (action.type) {
     case searchActions.INPUT_CHANGED_LOADING:
-        state = Object.assign({}, {isLoading:true}, action.value)
+        state = Object.assign({}, action.value)
         break;
     case searchActions.INPUT_CHANGED:
-        state = Object.assign({},{isLoading:false}, action.value)
+        console.log("reducerrrrrrrrrrr",action.value)
+        state = Object.assign({}, action.value.data)
         break;
     case searchActions.INPUT_ENTERED:
         state = Object.assign({},{isLoading: false}, {value : action.value.title})

@@ -1,4 +1,4 @@
-import {takeLatest, put, call} from 'redux-saga/effects';
+import {takeLatest, put, all, call} from 'redux-saga/effects';
 import * as searchActions from "../actions/searchActions"
 import * as searchConstants from "../../static/actionConstants"
 import * as URLS from '../../static/apiConstants'
@@ -6,17 +6,68 @@ import * as rawData from '../../static/rawData'
 
 let artistImage = 'https://react.semantic-ui.com/images/avatar/large/matthew.png';
 
-function* fetchSuggestions(action) {
-    try {
-        // const response = yield call(fetch, URLS.FETCH_TITLE_SEARCH);
-        // const responseBody = response.json();
 
-    } catch (e) {
-        // yield put(fetchFailed(e));
+function combineSearchResults(result1, result2, key) {
+    console.log("params", result1, result2, key)
+
+    let searchResults = {
+        "isLoading": false,
+        "results": {},
+        "value": key
+    }
+    let titleSearch = {
+        "name": "Title",
+        "results": []
+
+    }
+    let artistSearch = {
+        "name": "Artist",
+        "results": []
+    }
+    let finalObj = {}
+    let titleResults = result1.hits ? result1.hits.hits : []
+    let artistResults = result2.hits ? result2.hits.hits : []
+
+    finalObj.allResults = [].concat(titleResults).concat(artistResults)
+
+    if (titleResults.length >0) {
+        for (let item of titleResults) {
+            titleSearch.results.push({
+                title: item._source ? item._source.title : "",
+                description: item._source ? item._source.artist_name : ""
+            })
+        }
+        searchResults.results.Title = titleSearch;
+
     }
 
-    yield put(searchActions.inputChanged({value: action.value.value, results: rawData.searchSuggestions}));
 
+    for (let item of artistResults) {
+        artistSearch.results.push({
+            title: item._source ? item._source.title : "",
+            description: item._source ? item._source.artist_name : ""
+        })
+        searchResults.results.Artist = artistSearch;
+
+    }
+    finalObj.searchResults = searchResults;
+    return finalObj
+
+
+}
+
+function* fetchSuggestions(action) {
+    let term = action.value.value;
+    try {
+
+        let resutl1 = yield fetch(URLS.FETCH_TITLE_SEARCH + term).then(response => response.json());
+        let resutl2 = yield fetch(URLS.FETCH_ARTIST_SEARCH + term).then(response => response.json());
+
+        let resultObj = combineSearchResults(resutl1, resutl2, term);
+        yield put(searchActions.inputChanged({data: resultObj.searchResults}));
+    } catch (e) {
+        console.log("Errorrrrrrrrrrrrrrrrrrrrrrrr in title search and aritst seaerch", e)
+    }
 
 }
 

@@ -2,8 +2,8 @@ export const searchSuggestions = [
     {
         "title": "Krajcik Group",
         "description": "Customer-focused executive portal",
-        "image": "https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg",
-        "price": "$54.65"
+        "asa": "https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg",
+        "asd": "$54.65"
     },
     {
         "title": "Fisher, Ward and Hagenes",

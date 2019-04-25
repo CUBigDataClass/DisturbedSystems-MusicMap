@@ -13,10 +13,11 @@ class SearchComponent extends React.Component {
         }
     }
     render() {
-        // console.log("NEW PROPS SEARCH", this.props)
+        console.log("NEW PROPS SEARCH", this.props)
         return (
             <div className={"searchContainer"}>
             <Search
+                category
                 loading={this.props.isLoading}
                 onResultSelect={this.props.handleResultSelect}
                 onSearchChange={this.props.handleSearchChange}
