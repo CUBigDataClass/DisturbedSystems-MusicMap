@@ -30,7 +30,7 @@ function combineSearchResults(result1, result2, key) {
 
     finalObj.allResults = [].concat(titleResults).concat(artistResults)
 
-    if (titleResults.length >0) {
+    if (titleResults.length > 0) {
         for (let item of titleResults) {
             titleSearch.results.push({
                 title: item._source ? item._source.title : "",
@@ -42,14 +42,19 @@ function combineSearchResults(result1, result2, key) {
     }
 
 
-    for (let item of artistResults) {
-        artistSearch.results.push({
-            title: item._source ? item._source.title : "",
-            description: item._source ? item._source.artist_name : ""
-        })
+    if (artistResults.length > 0) {
+
+        for (let item of artistResults) {
+            artistSearch.results.push({
+                title: item._source ? item._source.title : "",
+                description: item._source ? item._source.artist_name : ""
+            })
+
+        }
         searchResults.results.Artist = artistSearch;
 
     }
+
     finalObj.searchResults = searchResults;
     return finalObj
 
@@ -58,16 +63,23 @@ function combineSearchResults(result1, result2, key) {
 
 function* fetchSuggestions(action) {
     let term = action.value.value;
-    try {
+    if(term.length >1) {
+        try {
 
-        let resutl1 = yield fetch(URLS.FETCH_TITLE_SEARCH + term).then(response => response.json());
-        let resutl2 = yield fetch(URLS.FETCH_ARTIST_SEARCH + term).then(response => response.json());
+            let resutl1 = yield fetch(URLS.FETCH_TITLE_SEARCH + term).then(response => response.json());
+            let resutl2 = yield fetch(URLS.FETCH_ARTIST_SEARCH + term).then(response => response.json());
 
-        let resultObj = combineSearchResults(resutl1, resutl2, term);
-        yield put(searchActions.inputChanged({data: resultObj.searchResults}));
-    } catch (e) {
-        console.log("Errorrrrrrrrrrrrrrrrrrrrrrrr in title search and aritst seaerch", e)
+            let resultObj = combineSearchResults(resutl1, resutl2, term);
+            yield put(searchActions.inputChanged({data: resultObj.searchResults}));
+        } catch (e) {
+            console.log("Errorrrrrrrrrrrrrrrrrrrrrrrr in title search and aritst seaerch", e)
+        }
+    }else {
+
+        yield put(searchActions.inputChanged({data: {value : term, loading: false}}));
+
     }
+
 
 }
 

@@ -7,7 +7,6 @@ switch (action.type) {
         state = Object.assign({}, action.value)
         break;
     case searchActions.INPUT_CHANGED:
-        console.log("reducerrrrrrrrrrr",action.value)
         state = Object.assign({}, action.value.data)
         break;
     case searchActions.INPUT_ENTERED:

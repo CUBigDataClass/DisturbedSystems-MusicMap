@@ -13,7 +13,7 @@ class SearchComponent extends React.Component {
         }
     }
     render() {
-        console.log("NEW PROPS SEARCH", this.props)
+        // console.log("NEW PROPS SEARCH", this.props)
         return (
             <div className={"searchContainer"}>
             <Search
@@ -42,14 +42,16 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleSearchChange: (e) => {
+        handleSearchChange: (e,result) => {
+
             dispatch({
                 type: searchConstants.INPUT_CHANGED_LOADING,
-                value: {isLoading: true, value: e.target.value, results: []}
+                value: {isLoading: true, value: e.target.value, results:result.results}
             })
         },
         handleResultSelect: (e, results) => {
             let result = results.result
+            result.artist = result.description
             //set the search bar right
             dispatch({
                 type: searchConstants.INPUT_ENTERED,
