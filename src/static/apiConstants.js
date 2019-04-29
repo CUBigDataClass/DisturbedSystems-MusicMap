@@ -7,3 +7,6 @@ export const FETCH_ALBUM ="http://35.231.190.150:5000/artist/"
 export const FETCH_GOOGLE_EVENTS ="http://35.231.190.150:5000/event/"
 export const FETCH_MAP_DATA ="http://35.231.190.150:5000/user/"
 export const FETCH_TRACK_DATA ="http://35.231.190.150:5000/track/"
+
+export const KAFKA_PRODUCER ="https://api.service.com/endpoint"
+
