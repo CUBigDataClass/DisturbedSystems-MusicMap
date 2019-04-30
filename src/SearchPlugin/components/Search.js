@@ -9,7 +9,7 @@ class SearchComponent extends React.Component {
     handleKeyPress(event) {
         if (event.key === 'Enter') {
             console.log("Enter key has been pressed to select the key")
-            this.props.handleResultSelect(event, {result : {title : event.target.value, artist : event.target.value}})
+            this.props.handleResultSelect(event, {result : {title : event.target.value, description : event.target.value}})
         }
     }
     render() {
