@@ -6,6 +6,7 @@ import * as searchConstants from "../../static/actionConstants";
 import connect from "react-redux/es/connect/connect";
 
 import {Loader, Icon, Header} from "semantic-ui-react"
+import * as apiConstants from "../../static/apiConstants"
 
 
 class TweetList extends React.Component {
@@ -14,8 +15,9 @@ class TweetList extends React.Component {
     }
 
 
-    componentDidMount() {
-        const socket = socketIOClient('http://localhost:3001/');
+    componentDidMount(){
+        const url = 'http://'+ apiConstants.TWEET_STREAMER +':3001/';
+        const socket = socketIOClient(url);
 
         socket.on('connect', () => {
             console.log("Socket Connected");
