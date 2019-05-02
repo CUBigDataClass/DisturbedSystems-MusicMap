@@ -8,7 +8,7 @@ class SearchComponent extends React.Component {
 
     handleKeyPress(event) {
         if (event.key === 'Enter') {
-            console.log("Enter key has been pressed to select the key")
+            // console.log("Enter key has been pressed to select the key")
             this.props.handleResultSelect(event, {result : {title : event.target.value, description : event.target.value}})
         }
     }
@@ -57,6 +57,13 @@ const mapDispatchToProps = dispatch => {
                 type: searchConstants.INPUT_ENTERED,
                 value: result
             })
+
+            //fetch the map data
+            dispatch({
+                type: searchConstants.FETCH_SENTIMENT_DATA,
+                value: result
+            })
+
             //fetch the map data
             dispatch({
                 type: searchConstants.FETCH_MAP_DATA,

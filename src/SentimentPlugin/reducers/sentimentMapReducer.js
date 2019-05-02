@@ -6,11 +6,11 @@ export default function sentimentMapReducer(state =[{loaded :true}], action) {
         case searchActions.INPUT_CHANGED_LOADING:
             state = Object.assign([{loaded :false}]);
             break;
-        case searchActions.FETCH_MAP_DATA_SUCCESSFUL:
+        case searchActions.FETCH_SENTIMENT_DATA_SUCCESSFUL:
             state = Object.assign(action.value.data);
             break;
 
-        case searchActions.FETCH_MAP_DATA_FAILED:
+        case searchActions.FETCH_SENTIMENT_DATA_FAILURE:
             state = Object.assign([{}]);
             break;
     }
