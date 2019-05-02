@@ -10,3 +10,5 @@ export const FETCH_TRACK_DATA ="http://35.231.190.150:5000/track/"
 
 export const KAFKA_PRODUCER ="https://api.service.com/endpoint"
 
+export const FETCH_SENTIMENT_DATA ="https://api.service.com/endpoint"
+

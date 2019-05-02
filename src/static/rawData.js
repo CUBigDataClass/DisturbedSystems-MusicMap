@@ -19,6 +19,76 @@ export const searchSuggestions = [
     }
 ];
 
+export const sentimentData = {
+    1: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }],
+    2: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }], 3: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }], 4: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }], 5: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }],
+    6: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }],
+    7: [{
+        "sentiment": "positive",
+        "value": 50
+    }, {
+        "sentiment": "negative",
+        "value": 30
+    }, {
+        "sentiment": "neutral",
+        "value": 20
+    }],
+};
+
 
 export const mapData = [
     {

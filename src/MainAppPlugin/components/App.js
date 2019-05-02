@@ -6,7 +6,7 @@ import TweetStreamer from "../../TweetStreamer/components/TweetStreamer"
 import EventCards from "../../EventsPlugin/components/EventCards"
 import Album from "../../AlbumPlugin/components/Album"
 import MusicPlayer from "../../MusicPlayer/components/MusicPlayer"
-
+import SentimentMap from "../../SentimentPlugin/components/SentimentMap"
 import css from "../../static/css/app.css"
 
 export default class App extends React.Component {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
                         </Grid.Column>
                     </Grid.Row>
 
-                    <Grid.Row columns={2}>
+                    <Grid.Row columns={3}>
                         <Grid.Column>
                             <Segment>
                                 <Album/>
@@ -28,6 +28,9 @@ export default class App extends React.Component {
                         </Grid.Column>
                         <Grid.Column>
                             <Segment><MusicPlayer/></Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Segment><SentimentMap/></Segment>
                         </Grid.Column>
                     </Grid.Row>
 

@@ -6,6 +6,7 @@ import albumReducer from "../AlbumPlugin/reducers/albumReducer"
 import tweetStreamerReducer from "../TweetStreamer/reducers/tweetStreamerReducer"
 import eventCardsReducer from  "../EventsPlugin/reducers/eventCardsReducer"
 import musicplayerReducer from "../MusicPlayer/reducers/musicplayerReducer"
+import sentimentMapReducer from "../SentimentPlugin/reducers/sentimentMapReducer"
 
 export default combineReducers({
     welcomeReducer,
@@ -14,6 +15,7 @@ export default combineReducers({
     tweetStreamerReducer,
     eventCardsReducer,
     albumReducer,
-    musicplayerReducer
+    musicplayerReducer,
+    sentimentMapReducer
 
 })

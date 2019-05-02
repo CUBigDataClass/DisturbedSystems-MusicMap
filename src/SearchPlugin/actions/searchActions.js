@@ -165,3 +165,29 @@ export function fetchTrackDataFailed(value) {
         value:value
     }
 }
+
+
+
+export function fetchSentimentData(value) {
+
+    return {
+        type: searchActions.FETCH_SENTIMENT_DATA,
+        value:value
+    }
+}
+
+export function fetchSentimentDataSuccessful(value) {
+
+    return {
+        type: searchActions.FETCH_SENTIMENT_DATA_SUCCESSFUL,
+        value:value
+    }
+}
+
+export function fetchSentimentDataFailed(value) {
+
+    return {
+        type: searchActions.FETCH_SENTIMENT_DATA_FAILURE,
+        value:value
+    }
+}
