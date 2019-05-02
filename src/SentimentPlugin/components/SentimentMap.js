@@ -3,90 +3,46 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import React from 'react';
 import {connect} from 'react-redux'
 import {Loader, Icon, Header} from "semantic-ui-react"
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+
 
 
 class SentimentMap extends React.Component {
 
     componentDidMount() {
         // Create map instance
+        am4core.useTheme(am4themes_animated);
+
         let chart = am4core.create("chartdiv2", am4charts.PieChart);
 
         // Set data
-        chart.data = {
-            1: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }],
-            2: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }], 3: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }], 4: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }], 5: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }],
-            6: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }],
-            7: [{
-                "sentiment": "positive",
-                "value": 50
-            }, {
-                "sentiment": "negative",
-                "value": 30
-            }, {
-                "sentiment": "neutral",
-                "value": 20
-            }],
-        };
+        chart.data = [{
+            sentiment: "Positive",
+            value: 20
+        },{
+            sentiment: "Negative",
+            value: 20
+        },
+            {
+                sentiment: "Neutral",
+                value: 20
+            }
+        ];
 
-        chart.data = [{}]
         // Create series
         let series = chart.series.push(new am4charts.PieSeries());
+        series.labels.template.disabled = true;
+
         series.dataFields.value = "value";
         series.dataFields.category = "sentiment";
+
+        // Let's cut a hole in our Pie chart the size of 40% the radius
+        chart.innerRadius = am4core.percent(40);
+
+
+        // Add a legend
+        chart.legend = new am4charts.Legend();
+        chart.legend.position = "right";
         this.chart = chart
     }
 

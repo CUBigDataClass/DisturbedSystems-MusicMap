@@ -164,10 +164,27 @@ function* fetchAlbumData(action) {
 
 }
 
+function* fetchSentimentData(action){
+    let term = action.value.artist;
+    try {
+        // const res = yield fetch(URLS.FETCH_SENTIMENT_DATA + term).then(response => response.json());
+        const res = rawData.sentimentData
+        yield put(searchActions.fetchSentimentDataSuccessful({data: res}));
+    } catch (e) {
+        yield put(searchActions.fetchSentimentDataFailed(e));
+
+    }
+
+
+
+}
+
 
 export default function* searchSaga() {
     yield takeLatest(searchConstants.INPUT_CHANGED_LOADING, fetchSuggestions)
     yield takeLatest(searchConstants.FETCH_MAP_DATA, fetchMapData)
+    yield takeLatest(searchConstants.FETCH_SENTIMENT_DATA, fetchSentimentData)
+
     yield takeLatest(searchConstants.FETCh_LIVE_TWEETS, fetchLiveTweets)
     yield takeLatest(searchConstants.FETCH_ALBUM_DATA, fetchAlbumData)
     yield takeLatest(searchConstants.FETCH_GOOGLE_EVENTS, fetchGoogleEvents)
