@@ -6,7 +6,6 @@ import {Loader, Icon, Header} from "semantic-ui-react"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 
-
 class SentimentMap extends React.Component {
 
     componentDidMount() {
@@ -17,17 +16,9 @@ class SentimentMap extends React.Component {
 
         // Set data
         chart.data = [{
-            sentiment: "Positive",
-            value: 20
-        },{
-            sentiment: "Negative",
-            value: 20
-        },
-            {
-                sentiment: "Neutral",
-                value: 20
-            }
-        ];
+            sentiment : "Search",
+            value : 100
+        }];
 
         // Create series
         let series = chart.series.push(new am4charts.PieSeries());
@@ -53,7 +44,14 @@ class SentimentMap extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
-
+        let sentimentObj = this.props.data
+        let self = this;
+        let count =0
+        setInterval(function () {
+            let index = count%7 +1 // 1---7
+            self.chart.data = sentimentObj[index]
+            count++;
+        }, 5000)
         // this.chartData.data = this.props.data
     }
 

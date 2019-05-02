@@ -113,7 +113,7 @@ function* fetchMapData(action) {
 }
 
 function* fetchLiveTweets(action) {
-    let term = action.value.artist || "eminem";//get the artist name
+    let term = action.value.artist;//get the artist name
     let headers = {
         method: "POST",
         headers: {

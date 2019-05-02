@@ -52,13 +52,14 @@ const mapDispatchToProps = dispatch => {
         handleResultSelect: (e, results) => {
             let result = results.result
             result.artist = result.description
+
             //set the search bar right
             dispatch({
                 type: searchConstants.INPUT_ENTERED,
                 value: result
             })
 
-            //fetch the map data
+            //fetch the sentiment data
             dispatch({
                 type: searchConstants.FETCH_SENTIMENT_DATA,
                 value: result

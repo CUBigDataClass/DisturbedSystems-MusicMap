@@ -22,32 +22,32 @@ export const searchSuggestions = [
 export const sentimentData = {
     1: [{
         "sentiment": "positive",
-        "value": 50
+        "value": 10
     }, {
         "sentiment": "negative",
-        "value": 30
+        "value": 40
     }, {
         "sentiment": "neutral",
-        "value": 20
+        "value": 50
     }],
     2: [{
         "sentiment": "positive",
-        "value": 50
+        "value": 20
     }, {
         "sentiment": "negative",
         "value": 30
     }, {
         "sentiment": "neutral",
-        "value": 20
+        "value": 50
     }], 3: [{
         "sentiment": "positive",
-        "value": 50
-    }, {
-        "sentiment": "negative",
         "value": 30
     }, {
-        "sentiment": "neutral",
+        "sentiment": "negative",
         "value": 20
+    }, {
+        "sentiment": "neutral",
+        "value": 50
     }], 4: [{
         "sentiment": "positive",
         "value": 50
