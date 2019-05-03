@@ -47,13 +47,12 @@ class TweetList extends React.Component {
                     </Header>
                 </div>
                 <div className={"tweetsLoading"}>
-                    <Header as='h3' textAlign='center' icon='search' content='Search to See what people are thinking right now!!' />
+                    <Header as='h3' textAlign='center' icon='search' content='Search to See what people are tweeting right now!!' />
                 </div>
 
             </div>)
 
         }
-        console.log("itemsmsssssssssssssssssss", items)
         let itemsCards = <CSSTransitionGroup
             transitionName="example"
             transitionEnterTimeout={500}

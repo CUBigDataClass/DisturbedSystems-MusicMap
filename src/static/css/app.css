@@ -47,7 +47,11 @@
     overflow: auto;
 }
 
-.tweetsLoading {
-    padding-left: 16%;
+.tweetsLoading, .sentimentLoading {
+    padding-left: 25%;
     padding-top: 25%;
+}
+
+.hide {
+    display: none;
 }
