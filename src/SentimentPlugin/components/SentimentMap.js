@@ -5,19 +5,22 @@ import {connect} from 'react-redux'
 import {Loader, Icon, Header} from "semantic-ui-react"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
-
 class SentimentMap extends React.Component {
-
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.charts =[]
+        this.chartIds =["chartdiv1","chartdiv2","chartdiv3","chartdiv4","chartdiv5","chartdiv6","chartdiv7"]
+    }
+    template(idName) {
         // Create map instance
         am4core.useTheme(am4themes_animated);
 
-        let chart = am4core.create("chartdiv2", am4charts.PieChart);
+        let chart = am4core.create(idName, am4charts.PieChart);
 
         // Set data
         chart.data = [{
-            sentiment : "Search",
-            value : 100
+            sentiment: "Search",
+            value: 100
         }];
 
         // Create series
@@ -34,7 +37,16 @@ class SentimentMap extends React.Component {
         // Add a legend
         chart.legend = new am4charts.Legend();
         chart.legend.position = "right";
-        this.chart = chart
+        let title = chart.titles.create();
+        title.text = "Day1";
+        title.fontSize = 25;
+        return chart;
+    }
+
+    componentDidMount() {
+        for(let id of this.chartIds) {
+            this.charts.push(this.template(id))
+        }
     }
 
     componentWillUnmount() {
@@ -44,22 +56,33 @@ class SentimentMap extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
-        let sentimentObj = this.props.data
+        let sentimentObj = this.props.data;
+
+
         let self = this;
-        let count =0
-        setInterval(function () {
-            let index = count%7 +1 // 1---7
-            self.chart.data = sentimentObj[index]
-            count++;
-        }, 5000)
+        let index = 1
+
+        for(let chart of this.charts){
+            chart.data = sentimentObj[index++]
+        }
+        // setInterval(function () {
+        //     let index = count % 7 + 1 // 1---7
+        //     self.chart.data = sentimentObj[index]
+        //     count++;
+        // }, 5000)
         // this.chartData.data = this.props.data
     }
 
     render() {
         return (
             <div className={"sentimentMapContainer"}>
-
+                <div id="chartdiv1"></div>
                 <div id="chartdiv2"></div>
+                <div id="chartdiv3"></div>
+                <div id="chartdiv4"></div>
+                <div id="chartdiv5"></div>
+                <div id="chartdiv6"></div>
+                <div id="chartdiv7"></div>
             </div>
         );
     }
@@ -76,4 +99,3 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(
     mapStateToProps,
 )(SentimentMap)
-
