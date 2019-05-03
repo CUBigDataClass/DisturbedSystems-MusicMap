@@ -8,10 +8,13 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 class SentimentMap extends React.Component {
     constructor(props) {
         super(props);
-        this.charts =[]
-        this.chartIds =["chartdiv1","chartdiv2","chartdiv3","chartdiv4","chartdiv5","chartdiv6","chartdiv7"]
+        this.charts = []
+        this.chartIds = ["chartdiv1", "chartdiv2", "chartdiv3", "chartdiv4", "chartdiv5", "chartdiv6", "chartdiv7"]
+        this.chartDivs = []
+        this.timer = null
     }
-    template(idName) {
+
+    template(idName, titleName) {
         // Create map instance
         am4core.useTheme(am4themes_animated);
 
@@ -38,14 +41,16 @@ class SentimentMap extends React.Component {
         chart.legend = new am4charts.Legend();
         chart.legend.position = "right";
         let title = chart.titles.create();
-        title.text = "Day1";
+        title.text = titleName;
         title.fontSize = 25;
         return chart;
     }
 
     componentDidMount() {
-        for(let id of this.chartIds) {
-            this.charts.push(this.template(id))
+        let i = 1
+        for (let id of this.chartIds) {
+            this.charts.push(this.template(id, "Day  " + i))
+            i++
         }
     }
 
@@ -59,18 +64,30 @@ class SentimentMap extends React.Component {
         let sentimentObj = this.props.data;
 
 
-        let self = this;
         let index = 1
 
-        for(let chart of this.charts){
+        for (let chart of this.charts) {
             chart.data = sentimentObj[index++]
         }
-        // setInterval(function () {
-        //     let index = count % 7 + 1 // 1---7
-        //     self.chart.data = sentimentObj[index]
-        //     count++;
-        // }, 5000)
-        // this.chartData.data = this.props.data
+
+        this.chartDivs = this.chartIds.map((id) => document.getElementById(id))
+        let self = this;
+        for (let div of self.chartDivs) {
+            div.style.display = "none"
+        }
+        this.chartDivs[0].style.display = ""
+        let count = 1
+
+        clearInterval(this.timer)
+        this.timer = setInterval(function () {
+            let index = count % 7 // 0---6
+            for (let div of self.chartDivs) {
+                div.style.display = "none"
+            }
+
+            self.chartDivs[index].style.display = ""
+            count++;
+        }, 2000)
     }
 
     render() {
