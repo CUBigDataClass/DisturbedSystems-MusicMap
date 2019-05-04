@@ -21,8 +21,8 @@ export default class App extends React.Component {
                     </Grid.Row>
 
                     <Grid.Row columns={3}>
-                        <Grid.Column className="albumnew">
-                            <Segment>
+                        <Grid.Column >
+                            <Segment className="albumnew">
                                 <Album/>
                             </Segment>
                         </Grid.Column>

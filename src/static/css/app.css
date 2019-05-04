@@ -69,44 +69,44 @@
 .albumnew{
     border-radius: 30px 2px 2px 2px!important;
 }
-.albumnew:hover{
+/*.albumnew:hover{
     transform: scale(1.05)!important;
     transition: transform 0.2s!important;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,.075)!important;
-}
+}*/
 
 .musicplayer{
     border-radius: 2px!important;
 }
-.musicplayer:hover{
+/*.musicplayer:hover{
     transform: scale(1.05);
     transition: transform 0.2s;
     box-shadow: 10px 10px 5px rgba(0,0,0,.075);
-}
+}*/
 .sentimentmap{
     border-radius: 2px 30px 2px 2px!important;
 }
-.sentimentmap:hover{
+/*.sentimentmap:hover{
     transform: scale(1.05);
     transition: transform 0.2s;
     box-shadow: 10px 10px 5px rgba(0,0,0,.075);
-}
+}*/
 .map{
     border-radius: 2px 2px 2px 30px!important;
 }
-.map:hover{
+/*.map:hover{
     transform: scale(1.02);
     transition: transform 0.2s;
     box-shadow: 10px 10px 5px rgba(0,0,0,.075);
-}
+}*/
 .tweetsNew{
     border-radius: 2px 2px 30px 2px!important;
 }
-.tweetsNew:hover{
+/*.tweetsNew:hover{
     transform: scale(1.04);
     transition: transform 0.2s;
     box-shadow: 10px 10px 5px rgba(0,0,0,.075);
-}
+}*/
 
 .eventcard:hover{
     transform: scale(1.05);
