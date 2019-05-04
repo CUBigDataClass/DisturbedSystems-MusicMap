@@ -11,7 +11,7 @@ class EventCards extends React.Component {
             <Card.Group centered>
                 {
                     events.map((event) => {
-                        return (<Card>
+                        return (<Card className="eventcard">
                             <Card.Content>
                                 <Image floated='right' size='mini'
                                        src={event.eImage}/>
