@@ -47,7 +47,7 @@
     overflow: auto;
 }
 
-.tweetsLoading, .sentimentLoading {
+.tweetsLoading, .sentimentLoading, .musicPlayerLoading {
     padding-left: 25%;
     padding-top: 25%;
 }
