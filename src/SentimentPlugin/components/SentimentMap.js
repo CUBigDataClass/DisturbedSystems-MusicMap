@@ -22,7 +22,7 @@ class SentimentMap extends React.Component {
 
         // Set data
         chart.data = [{
-            sentiment: "Search",
+            sentiment: "Stone Cold",
             value: 100
         }];
 
@@ -33,8 +33,22 @@ class SentimentMap extends React.Component {
         series.dataFields.value = "value";
         series.dataFields.category = "sentiment";
 
+        series.slices.template.stroke = am4core.color("#ffffff");
+        series.slices.template.strokeWidth = 4;
+        series.slices.template.strokeOpacity = 1;
+
+        series.colors.list = [am4core.color("#e85a4f"), am4core.color("#f8c8ac"), am4core.color("#DCD5D4")]
+        // series.colors.baseColor = am4core.color("#f8c8ac");
+        // series.colors.maxLightness = 0.9;
+        // series.colors.step = 1;
+        
+
+        // series.slices.template.max = am4core.color("#e85a4f");
+        // series.slices.template.min = am4core.color("#e85a4f");
+
+
         // Let's cut a hole in our Pie chart the size of 40% the radius
-        chart.innerRadius = am4core.percent(40);
+        chart.innerRadius = am4core.percent(30);
 
 
         // Add a legend
