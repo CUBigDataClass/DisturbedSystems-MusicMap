@@ -88,9 +88,11 @@ function* fetchSuggestionsOnLyrics() {
 
 
 function* fetchTrackData(action) {
-    let term = action.value.title || "Spiderman";
+    let term = action.value.title;
+    let artist = action.value.artist;
     try {
         const res = yield fetch(URLS.FETCH_TRACK_DATA + term).then(response => response.json());
+        res.artistName = artist
         yield put(searchActions.fetchTrackDataSuccessful({data: res}));
     } catch (e) {
         yield put(searchActions.fetchTrackDataFailed(e));

@@ -7,8 +7,11 @@ export default function albumReducer(state = {}, action) {
             state = Object.assign({}, {isLoading: false}, {value: action.value.title})
             break;
         case searchActions.FETCH_ALBUM_DATA_SUCCESSFUL:
-            state = Object.assign({}, action.value.data)
+            state = Object.assign({}, state, action.value.data)
 
+            break;
+        case searchActions.FETCh_TRACK_DATA_SUCCESSFUL:
+            state = Object.assign({}, state, action.value.data)
             break;
         case searchActions.FETCH_ALBUM_DATA_FAILED:
             state = Object.assign({})

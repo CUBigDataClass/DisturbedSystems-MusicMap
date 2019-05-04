@@ -11,9 +11,6 @@
     left: 20%;
 }
 
-.ui.card  {
-    width: 27%;
-}
 
 .ui.search > .ui.input.icon { width: 50%; }
 
@@ -54,4 +51,16 @@
 
 .hide {
     display: none;
+}
+.albumContainer{
+    width: 100%;
+}
+.cardContainer{
+    width: 40%;
+    float: left;
+}
+.listContainer {
+    font-size: large !important;
+    width: 50%;
+    float: right;
 }
