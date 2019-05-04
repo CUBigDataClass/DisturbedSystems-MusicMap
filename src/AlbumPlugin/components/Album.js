@@ -26,12 +26,7 @@ class Album extends React.Component {
         )
 
         return (<div className={"albumContainer"}>
-            <div>
-                <Header as='h4' icon textAlign='center'>
-                    <Icon name='id card' size="huge" color='blue'/>
-                    <Header.Content>Artist/Song Details</Header.Content>
-                </Header>
-            </div>
+
             <Card
                 href={artistData.spotifyURL}
                 image={artistData.spotifyImage}
