@@ -3,7 +3,7 @@ import * as searchActions from '../../static/actionConstants'
 export default function sentimentMapReducer(state =[{loaded :true}], action) {
     console.log(action, action.type)
     switch (action.type) {
-        case searchActions.INPUT_CHANGED_LOADING:
+        case searchActions.INPUT_ENTERED:
             state = Object.assign([{loaded :false}]);
             break;
         case searchActions.FETCH_SENTIMENT_DATA_SUCCESSFUL:
