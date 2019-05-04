@@ -14,34 +14,34 @@ export default class App extends React.Component {
         return (
             <div className="gridContainer">
                 <Grid padded>
-                    <Grid.Row columns={1}>
+                    <Grid.Row columns={1} className="topcolumn">
                         <Grid.Column>
                             <Search/>
                         </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row columns={3}>
-                        <Grid.Column>
+                        <Grid.Column className="albumnew">
                             <Segment>
                                 <Album/>
                             </Segment>
                         </Grid.Column>
                         <Grid.Column>
-                            <Segment><MusicPlayer/></Segment>
+                            <Segment className="musicplayer"><MusicPlayer/></Segment>
                         </Grid.Column>
                         <Grid.Column>
-                            <Segment><SentimentMap/></Segment>
+                            <Segment className="sentimentmap"><SentimentMap/></Segment>
                         </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row columns={2}>
                         <Grid.Column width={10}>
-                            <Segment>
+                            <Segment className="map">
                                 <Map/>
                             </Segment>
                         </Grid.Column>
                         <Grid.Column width={6}>
-                            <Segment>
+                            <Segment className="tweetsNew">
                                 <TweetStreamer/>
                             </Segment>
                         </Grid.Column>

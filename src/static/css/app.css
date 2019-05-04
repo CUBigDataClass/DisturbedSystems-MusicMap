@@ -1,12 +1,14 @@
 .appContainer {
-    background-color:#E7DED4;
+    background-color:#D8D2D1;
 }
 
 .searchContainer {
     width: 100%;
 }
 
-
+.input{
+    opacity: 0.9;
+}
 .ui.search  {
     left: 20%;
 }
@@ -63,4 +65,55 @@
     font-size: large !important;
     width: 50%;
     float: right;
+}
+.albumnew{
+    border-radius: 30px 2px 2px 2px!important;
+}
+.albumnew:hover{
+    transform: scale(1.05)!important;
+    transition: transform 0.2s!important;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,.075)!important;
+}
+
+.musicplayer{
+    border-radius: 2px!important;
+}
+.musicplayer:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.075);
+}
+.sentimentmap{
+    border-radius: 2px 30px 2px 2px!important;
+}
+.sentimentmap:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.075);
+}
+.map{
+    border-radius: 2px 2px 2px 30px!important;
+}
+.map:hover{
+    transform: scale(1.02);
+    transition: transform 0.2s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.075);
+}
+.tweetsNew{
+    border-radius: 2px 2px 30px 2px!important;
+}
+.tweetsNew:hover{
+    transform: scale(1.04);
+    transition: transform 0.2s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.075);
+}
+
+.eventcard:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,.075);
+}
+.topcolumn{
+    background-image:url('https://raw.githubusercontent.com/kevalds51/competitive/master/mm_img1.png?token=ACKGGUGTDR4IVNQDPNHAJRS42Z3JC');
+    background-size: cover;
 }
