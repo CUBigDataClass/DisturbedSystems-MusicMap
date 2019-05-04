@@ -10,8 +10,8 @@ class Album extends React.Component {
         if (!artistData.spotifyURL) {
             return (<div className={"albumContainer"}>
                 <div>
-                    <Header as='h4' icon textAlign='center'>
-                        <Icon name='id card' size="huge" color='blue'/>
+                    <Header as='h10' icon textAlign='center'>
+                        <Icon name='id card' size="massive" color='blue'/>
                         <Header.Content>Artist/Song Details</Header.Content>
                     </Header>
                 </div>

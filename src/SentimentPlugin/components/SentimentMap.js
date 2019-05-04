@@ -124,8 +124,8 @@ class SentimentMap extends React.Component {
 
             return (<div className={"sentimentMapContainer"}>
                 <div>
-                    <Header as='h4' icon textAlign='center'>
-                        <Icon name='smile' size="huge" color='blue'/>
+                    <Header as='h10' icon textAlign='center'>
+                        <Icon name='smile' size="massive" color='blue'/>
                         <Header.Content>Sentiment Chart</Header.Content>
                     </Header>
                 </div>

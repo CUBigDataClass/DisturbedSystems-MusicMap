@@ -13,8 +13,8 @@ class MusicPlayer extends React.Component {
         if(!trackId) {
             return (<div className={"musicPlayerContainer"}>
                 <div>
-                    <Header as='h4' icon textAlign='center'>
-                        <Icon name='music' size="huge" color='blue'/>
+                    <Header as='h10' icon textAlign='center'>
+                        <Icon name='music' size="massive" color='blue'/>
                         <Header.Content>Music Player</Header.Content>
                     </Header>
                 </div>
