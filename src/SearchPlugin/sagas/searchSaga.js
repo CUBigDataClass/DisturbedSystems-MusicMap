@@ -46,7 +46,7 @@ function combineSearchResults(result1, result2, key) {
 
         for (let item of artistResults) {
             artistSearch.results.push({
-                title: item._source ? item._source.title : "",
+                title: item._source ? item._source.artist_name : "",
                 description: item._source ? item._source.artist_name : ""
             })
 
