@@ -62,7 +62,7 @@ function combineSearchResults(result1, result2, key) {
 
 function* fetchSuggestions(action) {
     let term = action.value.value;
-    if(term.length >1) {
+    if(term.length >2) {
         try {
 
             let resutl1 = yield fetch(URLS.FETCH_TITLE_SEARCH + term).then(response => response.json());
