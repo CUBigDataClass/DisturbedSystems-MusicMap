@@ -41,7 +41,7 @@ class SentimentMap extends React.Component {
         // series.colors.baseColor = am4core.color("#f8c8ac");
         // series.colors.maxLightness = 0.9;
         // series.colors.step = 1;
-        
+
 
         // series.slices.template.max = am4core.color("#e85a4f");
         // series.slices.template.min = am4core.color("#e85a4f");
@@ -61,11 +61,19 @@ class SentimentMap extends React.Component {
     }
 
     componentDidMount() {
+        console.log("COMPONENT...MOUNTED")
         let i = 1
         for (let id of this.chartIds) {
             this.charts.push(this.template(id, "Day  " + i))
             i++
         }
+        this.chartDivs = this.chartIds.map((id) => document.getElementById(id))
+
+        setTimeout(function () {
+            document.getElementById('chartDivContainer').style.display="none"
+
+        }, 200)
+
     }
 
     componentWillUnmount() {
@@ -75,27 +83,32 @@ class SentimentMap extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
+        clearInterval(this.timer)
+
+        console.log("COMPONENT UPDATEDDDDD", this.props.data)
+        document.getElementById('chartDivContainer').style.display=""
+
+
         let sentimentObj = this.props.data;
-        this.chartDivs = this.chartIds.map((id) => document.getElementById(id))
+        // this.chartDivs = this.chartIds.map((id) => document.getElementById(id))
 
         let self = this;
-        for (let div of self.chartDivs) {
-            div.style.display = "none"
-        }
+        // for (let div of self.chartDivs) {
+        //     div.style.display = "none"
+        // }
 
-        if(!sentimentObj[7]){
-            return false
-
-        }
         let index = 1
 
         for (let chart of this.charts) {
-            console.log("pusing the data into the chart ",sentimentObj[index], index)
+            // console.log("pusing the data into the chart ", sentimentObj[index], index)
 
             chart.data = sentimentObj[index]
             index++
         }
 
+        for (let div of self.chartDivs) {
+            div.style.display = "none"
+        }
 
         this.chartDivs[0].style.display = ""
         let count = 1
@@ -104,59 +117,49 @@ class SentimentMap extends React.Component {
 
         this.timer = setInterval(function () {
             let index = count % 7// 0---6
-            // console.log("indexxxxxxxxxxxxxxx",index,self.chartDivs[index])
             for (let div of self.chartDivs) {
                 div.style.display = "none"
             }
 
             self.chartDivs[index].style.display = ""
-            console.log("indexxxxxxxxxxxxxxx",index,self.chartDivs[index])
-
             count++;
         }, 2000)
     }
 
     render() {
+        console.log("COMPONENT...REDNERING")
+
         let data = this.props.data
         let isLoaded = data[0] ? data[0].loaded : false
 
-        if (isLoaded) {
 
-            return (<div className={"sentimentMapContainer"}>
-                <div>
-                    <Header as='h10' icon textAlign='center'>
-                        <Icon name='smile' size="massive" color='blue'/>
-                        <Header.Content>Sentiment Chart</Header.Content>
-                    </Header>
-                </div>
-                <div className={"sentimentLoading"}>
-                    <Header as='h3' textAlign='center' icon='search' content='Seach to see the Sentiment Data!!'/>
-                </div>
-                <div className={"hide"} id="chartdiv1"></div>
-                <div className={"hide"} id="chartdiv2"></div>
-                <div className={"hide"} id="chartdiv3"></div>
-                <div className={"hide"} id="chartdiv4"></div>
-                <div className={"hide"} id="chartdiv5"></div>
-                <div className={"hide"} id="chartdiv6"></div>
-                <div className={"hide"} id="chartdiv7"></div>
-            </div>)
-        }
-        return (
-            <div className={"sentimentMapContainer"}>
-                {
-                    (this.props.data[1] || this.props.data[0].loaded) ? "" :
-                        <Loader active size='medium'>Fetching the Sentiment Data</Loader>
+        return (<div className={"sentimentMapContainer"}>
+            {
+                (this.props.data.loading !== undefined) ?(this.props.data.loading) ?<Loader active size='medium'>Fetching the Sentiment Data</Loader> :
+                    <div>
+                        <div>
+                            <Header as='h10' icon textAlign='center'>
+                                <Icon name='smile' size="massive" color='blue'/>
+                                <Header.Content>Sentiment Chart</Header.Content>
+                            </Header>
+                        </div>
+                        <div className={"sentimentLoading"}>
+                            < Header as='h3' textAlign='center' icon='search' content='Seach to see the Sentiment Data!!'/>
+                        </div>
+                    </div> : ""
 
-                }
-                <div id="chartdiv1"></div>
-                <div id="chartdiv2"></div>
-                <div id="chartdiv3"></div>
-                <div id="chartdiv4"></div>
-                <div id="chartdiv5"></div>
-                <div id="chartdiv6"></div>
-                <div id="chartdiv7"></div>
+
+            }
+            <div id={'chartDivContainer'}>
+            <div id="chartdiv1"></div>
+            <div id="chartdiv2"></div>
+            <div id="chartdiv3"></div>
+            <div id="chartdiv4"></div>
+            <div id="chartdiv5"></div>
+            <div id="chartdiv6"></div>
+            <div id="chartdiv7"></div>
             </div>
-        );
+        </div>)
     }
 
 }

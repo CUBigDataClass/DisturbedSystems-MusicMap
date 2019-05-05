@@ -22,7 +22,7 @@ class TweetList extends React.Component {
         socket.on('connect', () => {
             console.log("Socket Connected");
             socket.on("tweets", data => {
-                console.info(data);
+                // console.info(data);
                 this.props.twitterDataArrived(data);
             });
         });

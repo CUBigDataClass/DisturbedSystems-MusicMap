@@ -7,7 +7,7 @@ export default function tweetStreamerReducer(state = 0, action) {
             state = Object.assign([])
             break;
         case searchActions.FETCh_LIVE_TWEETS_FAILED:
-            console.log("Fetching the live tweet failed to set the topic for action", action.value)
+            // console.log("Fetching the live tweet failed to set the topic for action", action.value)
             state = Object.assign([])
             break;
         case searchActions.TWEET_DATA_ARRIVED:

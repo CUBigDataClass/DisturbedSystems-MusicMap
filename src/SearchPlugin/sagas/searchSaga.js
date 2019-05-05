@@ -8,7 +8,6 @@ let artistImage = 'https://react.semantic-ui.com/images/avatar/large/matthew.png
 
 
 function combineSearchResults(result1, result2, key) {
-    console.log("params", result1, result2, key)
 
     let searchResults = {
         "isLoading": false,

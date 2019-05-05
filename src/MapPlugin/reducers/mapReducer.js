@@ -1,7 +1,7 @@
 import * as searchActions from '../../static/actionConstants'
 
 export default function mapReducer(state =[{loaded :true}], action) {
-    console.log(action, action.type)
+    // console.log(action, action.type)
     switch (action.type) {
         case searchActions.INPUT_CHANGED_LOADING:
             state = Object.assign([{loaded :false}]);
