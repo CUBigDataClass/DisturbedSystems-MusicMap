@@ -10,6 +10,8 @@ class SentimentMap extends React.Component {
         super(props);
         this.charts = []
         this.chartIds = ["chartdiv1", "chartdiv2", "chartdiv3", "chartdiv4", "chartdiv5", "chartdiv6", "chartdiv7"]
+        this.days = ["Today", "Yesterday", "2 Days Back", "3 Days Back", "4 Days Back", "5 Days Back", "6 Days Back"]
+
         this.chartDivs = []
         this.timer = null
     }
@@ -61,10 +63,9 @@ class SentimentMap extends React.Component {
     }
 
     componentDidMount() {
-        console.log("COMPONENT...MOUNTED")
-        let i = 1
+        let i = 0
         for (let id of this.chartIds) {
-            this.charts.push(this.template(id, "Day  " + i))
+            this.charts.push(this.template(id, this.days[i]))
             i++
         }
         this.chartDivs = this.chartIds.map((id) => document.getElementById(id))

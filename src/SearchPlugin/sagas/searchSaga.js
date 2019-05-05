@@ -168,8 +168,8 @@ function* fetchAlbumData(action) {
 function* fetchSentimentData(action){
     let term = action.value.artist;
     try {
-        // const res = yield fetch(URLS.FETCH_SENTIMENT_DATA + term).then(response => response.json());
-        const res = rawData.sentimentData
+        const res = yield fetch(URLS.FETCH_SENTIMENT_DATA + term).then(response => response.json());
+        // const res = rawData.sentimentData
         yield put(searchActions.fetchSentimentDataSuccessful({data: res}));
     } catch (e) {
         yield put(searchActions.fetchSentimentDataFailed(e));

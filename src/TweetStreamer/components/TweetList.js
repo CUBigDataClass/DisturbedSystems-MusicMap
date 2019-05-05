@@ -16,13 +16,13 @@ class TweetList extends React.Component {
 
 
     componentDidMount(){
-        const url = 'http://'+ apiConstants.TWEET_STREAMER +':3001/';
+        const url = 'http://'+ apiConstants.TWEET_STREAMER +'/';
         const socket = socketIOClient(url);
 
         socket.on('connect', () => {
             console.log("Socket Connected");
             socket.on("tweets", data => {
-                // console.info(data);
+                console.info(data);
                 this.props.twitterDataArrived(data);
             });
         });
