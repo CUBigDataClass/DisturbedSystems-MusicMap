@@ -3,7 +3,7 @@ import * as searchActions from '../../static/actionConstants'
 export default function mapReducer(state =[{loaded :true}], action) {
     // console.log(action, action.type)
     switch (action.type) {
-        case searchActions.INPUT_CHANGED_LOADING:
+        case searchActions.INPUT_ENTERED:
             state = Object.assign([{loaded :false}]);
             break;
         case searchActions.FETCH_MAP_DATA_SUCCESSFUL:
@@ -18,3 +18,4 @@ export default function mapReducer(state =[{loaded :true}], action) {
     return state
 
 }
+

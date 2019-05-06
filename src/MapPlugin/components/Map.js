@@ -101,7 +101,7 @@ class Map extends React.Component {
                     </Header>
                 </div>
                 {
-                    (this.props.data[0].loaded || this.props.data.length > 1) ? "" :
+                    ((this.props.data[0] && this.props.data[0].loaded) || this.props.data.length > 1) ? "" :
                         <Loader active size='medium'>Calculating the twitter data</Loader>
 
 
