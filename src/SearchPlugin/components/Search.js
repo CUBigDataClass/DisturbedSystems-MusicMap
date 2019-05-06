@@ -65,11 +65,7 @@ const mapDispatchToProps = dispatch => {
                 value: result
             })
 
-            //fetch the map data
-            dispatch({
-                type: searchConstants.FETCH_MAP_DATA,
-                value: result
-            })
+
 
             //fetch live tweets
             dispatch({
@@ -92,6 +88,12 @@ const mapDispatchToProps = dispatch => {
             //fetch google event data
             dispatch({
                 type: searchConstants.FETCH_GOOGLE_EVENTS,
+                value: result
+            })
+
+            //fetch the map data
+            dispatch({
+                type: searchConstants.FETCH_MAP_DATA,
                 value: result
             })
 
